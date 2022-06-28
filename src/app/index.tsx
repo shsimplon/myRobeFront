@@ -9,7 +9,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Route, BrowserRouter, Router, Switch } from 'react-router-dom';
-import { HomePage } from './pages/HomePage/Loadable';
 import { useTranslation } from 'react-i18next';
 import '../styles/index.scss';
 import FormRegister from './pages/pageAuthentification/form/FormRegister';
@@ -18,8 +17,11 @@ import modaleAuthentification from './pages/pageAuthentification/form/modaleAuth
 import CardDressDetails from './pages/pageDresses/CardDressDetails';
 import { useSelector } from 'react-redux';
 import { userStore } from 'types/user';
-import Home from './components/templates/Home';
+import Home from './pages/AdminPage/HomeAdmin';
 import ModaleAuthentification from './pages/pageAuthentification/form/modaleAuthentification';
+
+import { AccueilPage } from './pages/AccueilPage/Loadable';
+import HomeAdmin from './pages/AdminPage/HomeAdmin';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -34,8 +36,8 @@ export function App() {
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
       <Switch>
-        {/* <Route path="/" component={HomePage} /> */}
-        <Route path="/" exact component={Home} />
+        <Route exact path="/" component={AccueilPage} />
+        <Route exact path="/admin" component={HomeAdmin} />
 
         <Route
           path="/authentification/"

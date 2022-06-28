@@ -22,8 +22,20 @@ export const SearchBarre = styled.div`
   position: absolute;
   left: 20rem;
   bottom: 210px;
+
+  @media (max-width: 1000px) {
+    width: calc(52.95% - 500px);
+
+    padding: 30px 300px 30px 30px;
+
+    left: 8rem;
+    bottom: 300px;
+  }
   @media (max-width: 768px) {
-    flex-direction: column;
+    left: 5rem;
+    bottom: 500px;
+    padding: 16px 180px 16px 34px;
+    position: fix;
   }
 `;
 export const SearchIcon = styled.div`
