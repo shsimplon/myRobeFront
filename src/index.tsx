@@ -1,56 +1,50 @@
-/**
- * index.tsx
- *
- * This is the entry file for the application, only setup and boilerplate
- * code.
- */
-
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
 import * as React from 'react';
-import * as ReactDOMClient from 'react-dom/client';
+import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import FontFaceObserver from 'fontfaceobserver';
 
-// Use consistent styling
 import 'sanitize.css/sanitize.css';
 
 import { App } from 'app';
 
 import { HelmetProvider } from 'react-helmet-async';
 
-import { configureAppStore } from 'store/configureStore';
-
-import { ThemeProvider } from 'styles/theme/ThemeProvider';
-
 import reportWebVitals from 'reportWebVitals';
 
 // Initialize languages
 import './locales/i18n';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/stylesheets';
+import store from 'app/store/store';
+import { userServices } from 'services';
+import { login, logout } from 'features/user.slice';
+import { userStore } from './types/user';
+import { BrowserRouter } from 'react-router-dom';
 
-// Observe loading of Inter (to remove 'Inter', remove the <link> tag in
-// the index.html file and this observer)
-const openSansObserver = new FontFaceObserver('Inter', {});
-
-// When Inter is loaded, add a font-family using Inter to the body
-openSansObserver.load().then(() => {
-  document.body.classList.add('fontLoaded');
-});
-
-const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
-ReactDOMClient.createRoot(MOUNT_NODE!).render(
+const isAuth = async () => {
+  try {
+    const response = await userServices.isAuth();
+    store.dispatch(login(response.data));
+  } catch (error: any) {
+    // store.dispatch(logout());
+  }
+};
+
+ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider>
-      <HelmetProvider>
-        <React.StrictMode>
+    <HelmetProvider>
+      <React.StrictMode>
+        <ThemeProvider theme={theme}>
           <App />
-        </React.StrictMode>
-      </HelmetProvider>
-    </ThemeProvider>
+        </ThemeProvider>
+      </React.StrictMode>
+    </HelmetProvider>
   </Provider>,
+  MOUNT_NODE,
 );
 
 // Hot reloadable translation json files

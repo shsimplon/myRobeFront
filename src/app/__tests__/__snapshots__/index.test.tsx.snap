@@ -8,7 +8,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
     encodeSpecialCharacters={true}
     htmlAttributes={
       Object {
-        "lang": "en-US",
+        "lang": undefined,
       }
     }
     prioritizeSeoTags={false}
@@ -23,12 +23,18 @@ exports[`<App /> should render and match the snapshot 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      path="/"
+      path="/authentification/"
     />
     <Route
       component={[Function]}
+      exact={true}
+      path="/dress/editDress"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
     />
   </Switch>
-  <Memo(l) />
 </BrowserRouter>
 `;
