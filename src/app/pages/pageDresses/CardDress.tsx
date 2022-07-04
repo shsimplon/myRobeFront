@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable react/jsx-no-undef */
 import { editDress, getDresses } from 'features/dresses.slice';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dressService } from 'services';
