@@ -1,4 +1,3 @@
-import Button from 'app/components/atoms/button/Button';
 import Input from 'app/components/atoms/input/Input';
 import Label from 'app/components/atoms/label/Label';
 import React from 'react';
