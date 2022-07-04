@@ -1,4 +1,3 @@
-import DressesList from 'app/pages/pageDresses/DressesList';
 import DressesListHome from 'app/pages/pageDresses/DressesListHome';
 import React from 'react';
 import NavigationComponent from '../molecules/navigation/Navigation';
