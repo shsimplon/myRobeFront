@@ -62,7 +62,7 @@ h4 {
 }
 .title input {
   height: 10px;
-//   width: 60%;
+  margin-top: 1rem;
 }
 .title button {
   font-weight: 600;
@@ -100,4 +100,8 @@ h4 {
 .btn-container div:hover {
   transform: scale(1.15);
   color: black;
+}
+span{
+    color: #BB8A5D;
+    font-weight: bold
 }

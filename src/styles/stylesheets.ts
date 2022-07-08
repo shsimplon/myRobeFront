@@ -18,7 +18,7 @@ export default {
     },
     ingridDarling24Regular: {
       family: 'Ingrid Darling',
-      size: '24px',
+      size: '14px',
       weight: '400',
       lineHeight: 'normal',
     },

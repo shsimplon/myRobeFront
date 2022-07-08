@@ -3,8 +3,8 @@ import axios from 'axios';
 import { login } from 'features/user.slice';
 
 const http = axios.create({
-  // baseURL: `http://localhost:8080`,
-  baseURL: process.env.APP_PORT,
+  baseURL: `http://localhost:8080`,
+  // baseURL: process.env.APP_PORT,
 
   withCredentials: true,
 });

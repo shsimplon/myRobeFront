@@ -1,122 +1,118 @@
 import Button from 'app/components/atoms/button/Button';
-// import * as React from 'react';
-// import { createRenderer } from 'react-test-renderer/shallow';
+import * as React from 'react';
+import { createRenderer } from 'react-test-renderer/shallow';
 
-// import {
-//   RenderResult,
-//   screen,
-//   render as rtlRender,
-// } from '@testing-library/react';
-// import { Provider } from 'react-redux';
-// import store from 'app/store/store';
-// import FormLogin from './FormLogin';
-// import { fireEvent } from '@testing-library/react';
-// import axios from 'axios';
-// const axiosGetTest = axios.create({
-//   baseURL: 'http://localhost:3000',
-//   timeout: 15000,
-//   headers: {},
-// });
+import {
+  RenderResult,
+  screen,
+  render as rtlRender,
+} from '@testing-library/react';
+import { Provider } from 'react-redux';
+import store from 'app/store/store';
+import FormLogin from './FormLogin';
+import { fireEvent } from '@testing-library/react';
+import axios from 'axios';
 
-// const render = component =>
-//   rtlRender(<Provider store={store}>{component}</Provider>);
+const render = component =>
+  rtlRender(<Provider store={store}>{<FormLogin />}</Provider>);
 
-// describe('<FormLogin />', () => {
-//   it('should render envoyer', () => {
-//     render(<FormLogin />);
+describe('<FormLogin />', () => {
+  it('should render post', () => {
+    render(<FormLogin />);
 
-//     const Envoyer = screen.getByText('Envoyer');
-//     expect(Envoyer).toBeInTheDocument();
-//   });
+    const send = screen.getByText('Envoyer');
 
-//   it('should render length of input', () => {
-//     render(<FormLogin />);
+    expect(send).toBeInTheDocument();
+  });
 
-//     const input = screen.getAllByRole('textbox');
-//     expect(input).toHaveLength(1);
-//   });
-//   it('should render length of button', () => {
-//     render(<FormLogin />);
+  it('should render length of input', () => {
+    render(<FormLogin />);
 
-//     const button = screen.getAllByRole('button');
-//     expect(button).toHaveLength(1);
-//   });
+    const input = screen.getAllByRole('textbox');
+    expect(input).toHaveLength(1);
+  });
+  it('should render length of button', () => {
+    render(<FormLogin />);
 
-//   it('Email input should be rendered', () => {
-//     render(<FormLogin />);
+    const button = screen.getAllByRole('button');
+    expect(button).toHaveLength(1);
+  });
 
-//     const emailInputEl = screen.getByPlaceholderText(/Email/i);
+  it('Email input should be rendered', () => {
+    render(<FormLogin />);
 
-//     const testValue = 'test';
+    const emailInputEl = screen.getByPlaceholderText(/Email/i);
 
-//     const change = fireEvent.change(emailInputEl, {
-//       target: { value: testValue },
-//     });
+    const testValue = 'test';
 
-//     expect(emailInputEl).toBeInTheDocument();
+    const change = fireEvent.change(emailInputEl, {
+      target: { value: testValue },
+    });
 
-//     expect(change).toBe(true);
-//   });
-//   it('password input should be rendered', () => {
-//     render(<FormLogin />);
+    expect(emailInputEl).toBeInTheDocument();
 
-//     const passwordInputEl = screen.getByPlaceholderText('Mot de passe');
-//     expect(passwordInputEl).toBeInTheDocument();
-//   });
+    expect(change).toBe(true);
+  });
+  it('password input should be rendered', () => {
+    render(<FormLogin />);
 
-//   it('value of input should be rendered', () => {
-//     render(<FormLogin />);
+    const passwordInputEl = screen.getByPlaceholderText('Mot de passe');
+    expect(passwordInputEl).toBeInTheDocument();
+  });
 
-//     const valueInputEl = screen.getByPlaceholderText('Mot de passe');
+  it('value of input should be rendered', () => {
+    render(<FormLogin />);
 
-//     expect(valueInputEl.textContent).toBe('');
-//   });
-//   it('button  should be disalbed', () => {
-//     render(<FormLogin />);
+    const valueInputEl = screen.getByPlaceholderText('Mot de passe');
 
-//     const buttonDisalbed = screen.getByRole('button');
+    expect(valueInputEl.textContent).toBe('');
+  });
+  it('button  should be disalbed', () => {
+    render(<FormLogin />);
 
-//     expect(buttonDisalbed).toBeDisabled();
-//   });
+    const buttonDisalbed = screen.getByRole('button');
 
-//   it('error message in span should not be visible', () => {
-//     render(<FormLogin />);
+    expect(buttonDisalbed).toBeDisabled();
+  });
 
-//     const errorEl = screen.getByTestId('error');
+  it('error message in span should not be visible', () => {
+    render(<FormLogin />);
 
-//     expect(errorEl).not.toBeVisible();
-//   });
+    const errorEl = screen.getByTestId('error');
 
-//   it('button  should be disalbed', () => {
-//     render(<FormLogin />);
+    expect(errorEl).not.toBeVisible();
+  });
 
-//     const buttonDisalbed = screen.getByRole('button');
-//     const emailInputEl = screen.getByPlaceholderText(/Email/i);
-//     const passwordInputEl = screen.getByPlaceholderText('Mot de passe');
-//     const testValue = 'test';
+  it('button  should be disalbed', () => {
+    render(<FormLogin />);
 
-//     fireEvent.change(emailInputEl, { target: { value: testValue } });
+    const buttonDisalbed = screen.getByRole('button');
+    const emailInputEl = screen.getByPlaceholderText(/Email/i);
+    const passwordInputEl = screen.getByPlaceholderText('Mot de passe');
+    const testValue = 'test';
 
-//     fireEvent.change(passwordInputEl, { target: { value: testValue } });
+    fireEvent.change(emailInputEl, { target: { value: testValue } });
 
-//     expect(buttonDisalbed).not.toBeDisabled();
-//   });
+    fireEvent.change(passwordInputEl, { target: { value: testValue } });
 
-//   test('user should be rendered after fetching', async () => {
-//     render(<FormLogin />);
-//     const buttonEl = screen.getByRole('button');
-//     const emailInputEl = screen.getByPlaceholderText(/email/i);
-//     const passwordInputEl = screen.getByPlaceholderText(/Mot de passe/i);
+    expect(buttonDisalbed).not.toBeDisabled();
+  });
 
-//     const testValue = 'test';
+  test('user should be rendered after fetching', async () => {
+    render(<FormLogin />);
+    const buttonEl = screen.getByRole('button');
+    const emailInputEl = screen.getByPlaceholderText(/email/i);
+    const passwordInputEl = screen.getByPlaceholderText(/Mot de passe/i);
 
-//     fireEvent.change(emailInputEl, { target: { value: testValue } });
-//     fireEvent.change(passwordInputEl, { target: { value: testValue } });
-//     fireEvent.click(buttonEl);
+    const testValue = 'test';
 
-//     const userItem = await screen.queryByText('amelia.aissou@gmail.com');
-//     console.log('userItem', userItem);
+    fireEvent.change(emailInputEl, { target: { value: testValue } });
+    fireEvent.change(passwordInputEl, { target: { value: testValue } });
+    fireEvent.click(buttonEl);
 
-//     expect(userItem).not.toBeInTheDocument();
-//   });
-// });
+    const userItem = await screen.queryByText('amelia.aissou@gmail.com');
+    console.log('userItem', userItem);
+
+    expect(userItem).not.toBeInTheDocument();
+  });
+});

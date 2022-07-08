@@ -15,7 +15,7 @@ export const SearchBarre = styled.div`
   width: calc(52.95% - 559px);
   background-color: ${props => props.theme.colors.transparentSilver};
   border-radius: 50px;
-  padding: 32px 525px 30px 34px;
+  padding: 10px 400px 20px 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -26,15 +26,15 @@ export const SearchBarre = styled.div`
   @media (max-width: 1000px) {
     width: calc(52.95% - 500px);
 
-    padding: 30px 300px 30px 30px;
+    padding: 10px 300px 10px 10px;
 
     left: 8rem;
-    bottom: 300px;
+    bottom: 200px;
   }
   @media (max-width: 768px) {
     left: 5rem;
-    bottom: 500px;
-    padding: 16px 180px 16px 34px;
+    bottom: 450px;
+    padding: 10px 150px 10px 10px;
     position: fix;
   }
 `;

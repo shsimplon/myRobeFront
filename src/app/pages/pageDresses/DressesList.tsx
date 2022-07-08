@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React, { useEffect, useState } from 'react';
-import { useDispatch, DefaultRootState, useSelector } from 'react-redux';
-import { dressesSlice, getDresses } from 'features/dresses.slice';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDresses } from 'features/dresses.slice';
 import { dressService } from 'services';
 import { dressesStore } from 'types/dress';
 import CardDress from './CardDress';
