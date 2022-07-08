@@ -18,6 +18,7 @@ http.interceptors.request.use(request => {
       'POST, GET, OPTIONS, PUT, DELETE';
     request.headers['Access-Control-Allow-Headers'] =
       'Origin, Content-Type, Accept, Authorization, X-Request-With';
+    request.headers['Access-Control-Allow-Origin'] = '*';
   }
   return request;
 });
