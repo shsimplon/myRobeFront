@@ -4,18 +4,21 @@ import { login } from 'features/user.slice';
 
 const http = axios.create({
   baseURL: `http://51.75.121.173:8080`,
-  // baseURL: process.env.APP_PORT,
 
   withCredentials: true,
 });
 //intercepte toutes les requettes axios
 http.interceptors.request.use(request => {
   const state = store.getState();
-  if (request.headers)
+  if (request.headers) {
     request.headers[
       'Authorization'
     ] = `Bearer ${state.user.user?.access_token}`;
-
+    request.headers['Access-Control-Allow-Methods'] =
+      'POST, GET, OPTIONS, PUT, DELETE';
+    request.headers['Access-Control-Allow-Headers'] =
+      'Origin, Content-Type, Accept, Authorization, X-Request-With';
+  }
   return request;
 });
 
