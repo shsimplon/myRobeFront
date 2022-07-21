@@ -68,3 +68,18 @@ input[type="submit"] {
 }
 
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  overflow-wrap: break-word; 
+}
+
+
+img {
+  max-width: 100%; 
+  object-fit: cover;}

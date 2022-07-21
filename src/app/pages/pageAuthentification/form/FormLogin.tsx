@@ -18,18 +18,18 @@ const FormLogin = props => {
     e.preventDefault();
 
     try {
-      //   if (email === '' || password === '') {
-      const response = await userServices.signIn({ email, password });
-      const user = response.data;
+      if (email === '' || password === '') {
+        notifyError('Vous devez remplir tous les champs!');
+      } else {
+        const response = await userServices.signIn({ email, password });
+        const user = response.data;
 
-      dispatch(login(user));
-      notifySuccess(`vous Êtes connéctés: ${user.email}!`);
-      history.push('/');
-      //   }
+        dispatch(login(user));
+        notifySuccess(`vous Êtes connéctés: ${user.email}!`);
+        history.push('/');
+      }
     } catch (error: any) {
-      notifyError('Vous devez remplir tous les champs!');
-
-      setError(true);
+      notifyError(error.response.data.message);
     }
   };
 
@@ -58,7 +58,7 @@ const FormLogin = props => {
           <button
             type="submit"
             className="button"
-            disabled={email === '' || password === '' ? true : false}
+            disabled={false}
             onClick={e => handleClick(e)}
           >
             {' '}

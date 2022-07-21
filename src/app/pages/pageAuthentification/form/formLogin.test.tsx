@@ -67,13 +67,6 @@ describe('<FormLogin />', () => {
 
     expect(valueInputEl.textContent).toBe('');
   });
-  it('button  should be disalbed', () => {
-    render(<FormLogin />);
-
-    const buttonDisalbed = screen.getByRole('button');
-
-    expect(buttonDisalbed).toBeDisabled();
-  });
 
   it('error message in span should not be visible', () => {
     render(<FormLogin />);

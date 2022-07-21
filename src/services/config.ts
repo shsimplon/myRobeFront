@@ -4,7 +4,7 @@ import { login } from 'features/user.slice';
 
 const http = axios.create({
   baseURL: `http://51.75.121.173:8080`,
-
+  // baseURL: 'http://localhost:8080',
   withCredentials: true,
 });
 //intercepte toutes les requettes axios
@@ -34,6 +34,8 @@ http.interceptors.response.use(
 
     try {
       const response = await http.get('/user/auth/refresh');
+      console.log(response);
+
       store.dispatch(login(response.data));
       error.hasRefreshedTocken = true;
       return Promise.reject(error);

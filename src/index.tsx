@@ -20,32 +20,36 @@ import theme from './styles/stylesheets';
 import store from 'app/store/store';
 import { userServices } from 'services';
 import { login, logout } from 'features/user.slice';
-import { userStore } from './types/user';
-import { BrowserRouter } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
 const isAuth = async () => {
   try {
     const response = await userServices.isAuth();
+    console.log('response', response);
+
     store.dispatch(login(response.data));
   } catch (error: any) {
-    // store.dispatch(logout());
+    store.dispatch(logout());
   }
 };
 
-ReactDOM.render(
-  <Provider store={store}>
-    <HelmetProvider>
-      <React.StrictMode>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </React.StrictMode>
-    </HelmetProvider>
-  </Provider>,
-  MOUNT_NODE,
-);
+(async () => {
+  await isAuth();
+  ReactDOM.render(
+    <Provider store={store}>
+      <HelmetProvider>
+        <React.StrictMode>
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </React.StrictMode>
+      </HelmetProvider>
+    </Provider>,
+    MOUNT_NODE,
+  );
+})();
 
 // Hot reloadable translation json files
 if (module.hot) {

@@ -12,15 +12,12 @@ import Delete from './Delete';
 import { useLocation, useParams } from 'react-router-dom';
 
 const CardDress = ({ dress }) => {
-  console.log(dress);
-
   const [edit, setEdit] = useState(false);
   const inputName = React.useRef<HTMLInputElement | null>(null);
   const inputSize = React.useRef<HTMLInputElement | null>(null);
   const inputPrice = React.useRef<HTMLInputElement | null>(null);
 
   const dispatch = useDispatch();
-  //   const path = window.location.href;
 
   const pathName = useLocation().pathname;
 

@@ -6,7 +6,7 @@ export type user = {
 };
 
 export type userComplete = {
-  name?: string;
+  username?: string;
   address?: string;
   phone?: string;
   email?: string;

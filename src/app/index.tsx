@@ -38,7 +38,7 @@ export function App() {
       <Switch>
         <Route exact path="/" component={AccueilPage} />
         <Route exact path="/admin" component={HomeAdmin} />
-
+        {/* <PrivateRoute path="/admin" component={HomeAdmin}/></PrivateRoute> */}
         <Route
           path="/authentification/"
           exact
@@ -50,7 +50,7 @@ export function App() {
     </BrowserRouter>
   );
 }
-// const PrivateRoute = ({ component: Component }: { component: JSX.Element }) => {
-//   const userState = useSelector((state: { user: userStore }) => state.user);
-//   return !userState.isLogged ? <Home /> : Component;
-// };
+const PrivateRoute = ({ component: Component }: { component: JSX.Element }) => {
+  const userState = useSelector((state: { user: userStore }) => state.user);
+  return !userState.isLogged ? <Home /> : Component;
+};
