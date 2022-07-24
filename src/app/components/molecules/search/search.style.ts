@@ -34,7 +34,7 @@ export const SearchBarre = styled.div`
   @media (max-width: 768px) {
     left: 5rem;
     bottom: 450px;
-    padding: 10px 150px 10px 10px;
+    padding: 5px 150px 5px 5px;
     position: fix;
   }
 `;

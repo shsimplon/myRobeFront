@@ -2,14 +2,14 @@ import Button from 'app/components/atoms/button/Button';
 import FormMolecule from 'app/components/molecules/label-input/FormsMolecule';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { userServices } from 'services';
 import { notifySuccess } from 'utils/toastify';
 import { userComplete } from '../../../../types/user';
-import { useHistory } from 'react-router-dom';
 import FormLogin from './FormLogin';
 
 const Form = signup => {
-  let history = useHistory();
+  let navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -49,7 +49,7 @@ const Form = signup => {
       const user = response.data;
       notifySuccess('Votre compte est enregistré, veuillez vous connectez!');
       <FormLogin />;
-      //   history.push('/authentification');
+      // navigate('/authentification');
     } catch (error: any) {
       setError(true);
     }

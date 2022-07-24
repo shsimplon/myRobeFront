@@ -3,6 +3,7 @@ export type user = {
   email: string;
   password: string;
   access_token?: string;
+  role?: '';
 };
 
 export type userComplete = {
@@ -11,7 +12,7 @@ export type userComplete = {
   phone?: string;
   email?: string;
   password?: string;
-  role?: string;
+  role?: '';
 };
 
 export type userStore = {

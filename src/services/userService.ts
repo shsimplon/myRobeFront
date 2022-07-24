@@ -19,7 +19,5 @@ export const logout = async () => {
   return await http.get('/user/logout');
 };
 export const signUp = async (user: any): Promise<any> => {
-  console.log('signup', user);
-
   return await http.post('/user', user);
 };

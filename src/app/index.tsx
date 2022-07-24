@@ -8,7 +8,7 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Route, BrowserRouter, Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Router, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../styles/index.scss';
 import FormRegister from './pages/pageAuthentification/form/FormRegister';
@@ -17,11 +17,11 @@ import modaleAuthentification from './pages/pageAuthentification/form/modaleAuth
 import CardDressDetails from './pages/pageDresses/CardDressDetails';
 import { useSelector } from 'react-redux';
 import { userStore } from 'types/user';
-import Home from './pages/AdminPage/HomeAdmin';
 import ModaleAuthentification from './pages/pageAuthentification/form/modaleAuthentification';
 
 import { AccueilPage } from './pages/AccueilPage/Loadable';
 import HomeAdmin from './pages/AdminPage/HomeAdmin';
+import Home from './components/templates/Home';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -35,22 +35,30 @@ export function App() {
       >
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
-      <Switch>
-        <Route exact path="/" component={AccueilPage} />
-        <Route exact path="/admin" component={HomeAdmin} />
-        {/* <PrivateRoute path="/admin" component={HomeAdmin}/></PrivateRoute> */}
+      <Routes>
+        <Route path="/" element={<AccueilPage />} />
         <Route
-          path="/authentification/"
-          exact
-          component={ModaleAuthentification}
+          path="/admin"
+          element={<PrivateRouteAdmin component={<HomeAdmin />} />}
         />
-
-        <Route path="/dress/editDress" exact component={CardDressDetails} />
-      </Switch>
+        <Route path="/authentification/" element={<ModaleAuthentification />} />
+      </Routes>
     </BrowserRouter>
   );
 }
 const PrivateRoute = ({ component: Component }: { component: JSX.Element }) => {
   const userState = useSelector((state: { user: userStore }) => state.user);
   return !userState.isLogged ? <Home /> : Component;
+};
+const PrivateRouteAdmin = ({
+  component: Component,
+}: {
+  component: JSX.Element;
+}) => {
+  const userState = useSelector((state: { user: userStore }) => state.user);
+  return userState.isLogged && userState.user?.role === ('A' as any) ? (
+    Component
+  ) : (
+    <Home />
+  );
 };

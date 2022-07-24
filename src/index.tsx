@@ -27,7 +27,6 @@ const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 const isAuth = async () => {
   try {
     const response = await userServices.isAuth();
-    console.log('response', response);
 
     store.dispatch(login(response.data));
   } catch (error: any) {

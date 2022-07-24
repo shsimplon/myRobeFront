@@ -1,13 +1,13 @@
 import { login } from 'features/user.slice';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { notifyError, notifySuccess } from 'utils/toastify';
 import { userServices } from '../../../../services/index';
 
 const FormLogin = props => {
-  let history = useHistory();
+  let navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -25,8 +25,10 @@ const FormLogin = props => {
         const user = response.data;
 
         dispatch(login(user));
-        notifySuccess(`vous Êtes connéctés: ${user.email}!`);
-        history.push('/');
+        notifySuccess(`vous êtes connéctés: ${user.email}!`);
+        if (user.role) {
+          navigate('/admin');
+        } else navigate('/');
       }
     } catch (error: any) {
       notifyError(error.response.data.message);

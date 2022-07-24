@@ -82,4 +82,22 @@ a {
 
 img {
   max-width: 100%; 
-  object-fit: cover;}
+//   object-fit: cover;
+}
+
+
+#image{
+    height: 90%;
+    width: 100%;
+    @media screen and (max-width: 470px) {
+        height: 44%;
+        width: 53%;
+        margin: auto;
+}
+}
+#image-navigation{
+    @media screen and (max-width: 470px) {
+        height: 50%;
+        width: 100%;
+      }
+}

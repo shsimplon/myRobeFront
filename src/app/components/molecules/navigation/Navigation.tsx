@@ -1,26 +1,34 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { logout } from 'features/user.slice';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userServices } from 'services';
 import { userStore } from 'types/user';
 import { HiOutlineLogout } from 'react-icons/hi';
+import { Navigation, MenuBurger } from './navigation.style';
+import { notifySuccess } from 'utils/toastify';
 
-import { Navigation, MenuBurger, img } from './navigation.style';
 const NavigationComponent = () => {
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const [users, setUsers] = useState([]);
 
   const userState = useSelector((state: { user: userStore }) => state.user);
+  console.log('userState', userState);
+
   const dispatch = useDispatch();
   useEffect(() => {
     getUsers();
   }, []);
+
   const logoutUser = async () => {
+    await userServices.logout();
     await dispatch(logout());
-    history.push('/authentification');
+    navigate('/');
+    notifySuccess(`Vous êtes hors ligne !`);
   };
+
   const getUsers = async () => {
     try {
       const response = await userServices.getAllUsers();
@@ -29,37 +37,42 @@ const NavigationComponent = () => {
       if (error.hasRefreshedToken) getUsers();
       else {
         dispatch(logout());
-        history.push('/authentification');
+        navigate('/');
       }
     }
   };
 
+  useEffect(() => {}, []);
+
   return (
     <Navigation>
       <div style={{ display: 'flex', gap: '50px' }}>
-        <MenuBurger
+        {/* <MenuBurger
           alt=""
           src="https://static.overlay-tech.com/assets/6cfd6b5a-bf15-40b5-88c3-a71f437407bd.svg"
-        />
-        <img src="../logo.png" alt="" />
+        /> */}
+        <img src="../logo.png" alt="image logo" id="image" />
       </div>
-      <div style={{ display: 'flex', gap: '50px' }}>
+      <div style={{ display: 'flex', gap: '30px' }}>
         <Link to="/dress/favoris">
           <img
-            alt=""
+            alt="icon-corbeille"
+            id="image-navigation"
             src="https://static.overlay-tech.com/assets/dd011da0-9f6a-4023-9d03-f71c4f8b1f9f.svg"
           />
         </Link>
         <Link to="dress/panier">
           <img
-            alt=""
+            id="image-navigation"
+            alt="icon-panier"
             src="https://static.overlay-tech.com/assets/cdb01ef3-6f67-477a-a321-2f3877f665fc.svg"
           />
         </Link>
 
         <Link to="/authentification">
           <img
-            alt=""
+            id="image-navigation"
+            alt="icon-profil"
             src="https://static.overlay-tech.com/assets/42a6309f-f647-42fb-b109-44552601b9de.svg"
           />
         </Link>

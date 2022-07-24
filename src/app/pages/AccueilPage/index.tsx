@@ -3,17 +3,16 @@ import { logout } from 'features/user.slice';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { userServices } from 'services';
 import { userStore } from 'types/user';
 
 export function AccueilPage() {
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const [users, setUsers] = React.useState([]);
 
   const userState = useSelector((state: { user: userStore }) => state.user);
-  console.log('userState', userState);
 
   const dispatch = useDispatch();
 
@@ -29,7 +28,7 @@ export function AccueilPage() {
       if (error.hasRefreshedToken) getUsers();
       else {
         dispatch(logout());
-        history.push('/');
+        navigate('/');
       }
     }
   };

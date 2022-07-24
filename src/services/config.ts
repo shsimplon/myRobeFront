@@ -34,8 +34,6 @@ http.interceptors.response.use(
 
     try {
       const response = await http.get('/user/auth/refresh');
-      console.log(response);
-
       store.dispatch(login(response.data));
       error.hasRefreshedTocken = true;
       return Promise.reject(error);
