@@ -26,7 +26,7 @@ const FormLogin = props => {
 
         dispatch(login(user));
         notifySuccess(`vous êtes connéctés: ${user.email}!`);
-        if (user.role) {
+        if (user?.role === 'A') {
           navigate('/admin');
         } else navigate('/');
       }

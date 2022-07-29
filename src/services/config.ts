@@ -3,8 +3,8 @@ import axios from 'axios';
 import { login } from 'features/user.slice';
 
 const http = axios.create({
-  baseURL: `http://51.75.121.173:8080`,
-  // baseURL: 'http://localhost:8080',
+  // baseURL: `http://51.75.121.173:8080`,
+  baseURL: 'http://localhost:8080',
   withCredentials: true,
 });
 //intercepte toutes les requettes axios
@@ -14,11 +14,11 @@ http.interceptors.request.use(request => {
     request.headers[
       'Authorization'
     ] = `Bearer ${state.user.user?.access_token}`;
-    request.headers['Access-Control-Allow-Methods'] =
-      'POST, GET, OPTIONS, PUT, DELETE';
-    request.headers['Access-Control-Allow-Headers'] =
-      'Origin, Content-Type, Accept, Authorization, X-Request-With';
-    request.headers['Access-Control-Allow-Origin'] = '*';
+    // request.headers['Access-Control-Allow-Methods'] =
+    //   'POST, GET, OPTIONS, PUT, DELETE';
+    // request.headers['Access-Control-Allow-Headers'] =
+    //   'Origin, Content-Type, Accept, Authorization, X-Request-With';
+    // request.headers['Access-Control-Allow-Origin'] = '*';
   }
   return request;
 });

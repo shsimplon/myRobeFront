@@ -4,18 +4,20 @@
 import { editDress } from 'features/dresses.slice';
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { dressService } from 'services';
 import { FaRegEdit } from 'react-icons/fa';
 
 import Delete from './Delete';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { userStore } from 'types/user';
 
 const CardDress = ({ dress }) => {
   const [edit, setEdit] = useState(false);
   const inputName = React.useRef<HTMLInputElement | null>(null);
   const inputSize = React.useRef<HTMLInputElement | null>(null);
   const inputPrice = React.useRef<HTMLInputElement | null>(null);
+  const userState = useSelector((state: { user: userStore }) => state.user);
 
   const dispatch = useDispatch();
 
@@ -42,7 +44,7 @@ const CardDress = ({ dress }) => {
 
   let display;
 
-  if (pathName !== '/') {
+  if (pathName === '/admin' && userState.user?.role === ('A' as any)) {
     display = (
       <div className="btn-container">
         <div className="edit-icon" onClick={() => setEdit(!edit)}>
@@ -57,8 +59,9 @@ const CardDress = ({ dress }) => {
 
   return (
     <div className="dress-card">
-      <img src={dress.image} alt={'photo de ' + dress.name} />
-
+      <Link to={`/robe/detail/:${dress.id}`}>
+        <img src={dress.image} alt={'photo de ' + dress.name} />
+      </Link>
       <div className="infos">
         <div className="title">
           {edit ? (

@@ -8,13 +8,9 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Route, BrowserRouter, Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../styles/index.scss';
-import FormRegister from './pages/pageAuthentification/form/FormRegister';
-import FormLogin from './pages/pageAuthentification/form/FormLogin';
-import modaleAuthentification from './pages/pageAuthentification/form/modaleAuthentification';
-import CardDressDetails from './pages/pageDresses/CardDressDetails';
 import { useSelector } from 'react-redux';
 import { userStore } from 'types/user';
 import ModaleAuthentification from './pages/pageAuthentification/form/modaleAuthentification';
@@ -22,8 +18,9 @@ import ModaleAuthentification from './pages/pageAuthentification/form/modaleAuth
 import { AccueilPage } from './pages/AccueilPage/Loadable';
 import HomeAdmin from './pages/AdminPage/HomeAdmin';
 import Home from './components/templates/Home';
+import DressDetails from './pages/pageDresses/DressDetails';
 
-export function App() {
+export function App({}) {
   const { i18n } = useTranslation();
 
   return (
@@ -42,6 +39,10 @@ export function App() {
           element={<PrivateRouteAdmin component={<HomeAdmin />} />}
         />
         <Route path="/authentification/" element={<ModaleAuthentification />} />
+        {/* <Route
+          path="/robe/detail/:id"
+          element={<DressDetails dress={dress} />}
+        /> */}
       </Routes>
     </BrowserRouter>
   );

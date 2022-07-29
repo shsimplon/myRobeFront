@@ -23,7 +23,9 @@ const NavigationComponent = () => {
   }, []);
 
   const logoutUser = async () => {
-    await userServices.logout();
+    const user = await userServices.logout();
+    console.log('user', user);
+
     await dispatch(logout());
     navigate('/');
     notifySuccess(`Vous êtes hors ligne !`);

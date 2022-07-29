@@ -16,8 +16,11 @@ export const isAuth = async () => {
 };
 
 export const logout = async () => {
+  console.log('hhhh');
+
   return await http.get('/user/logout');
 };
+
 export const signUp = async (user: any): Promise<any> => {
   return await http.post('/user', user);
 };
