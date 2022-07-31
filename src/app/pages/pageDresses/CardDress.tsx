@@ -59,47 +59,55 @@ const CardDress = ({ dress }) => {
 
   return (
     <div className="dress-card">
-      <Link to={`/robe/detail/:${dress.id}`}>
+      <Link
+        to={{
+          pathname: `/robe/detail/${dress.id}`,
+        }}
+        key={dress.id}
+      >
         <img src={dress.image} alt={'photo de ' + dress.name} />
-      </Link>
-      <div className="infos">
-        <div className="title">
-          {edit ? (
-            <div>
-              <span>Name : </span>
-              <input defaultValue={dress.name} ref={inputName} autoFocus />
-              <br />
-              <span>Prix : </span>
-              <input defaultValue={dress.price} ref={inputPrice} autoFocus />
-              <br />
-              <span>Taille : </span>
-              <input defaultValue={dress.size} ref={inputSize} autoFocus />
-              &nbsp;
-              <button onClick={() => handleEdit()}>Valider</button>
-            </div>
-          ) : (
-            <>
-              <>
-                <h4>
-                  {inputName.current && inputName.current
-                    ? inputName.current.value
-                    : dress.name}
-                </h4>{' '}
+
+        <div className="infos">
+          <div className="title">
+            {edit ? (
+              <div>
+                <span>Name : </span>
+                <input defaultValue={dress.name} ref={inputName} autoFocus />
+                <br />
+                <span>Prix : </span>
+                <input defaultValue={dress.price} ref={inputPrice} autoFocus />
+                <br />
+                <span>Taille : </span>
+                <input defaultValue={dress.size} ref={inputSize} autoFocus />
                 &nbsp;
-                <p>
-                  Prix:{' '}
-                  {inputPrice.current ? inputPrice.current.value : dress.price}
-                </p>
-                <p>
-                  Taille:{' '}
-                  {inputSize.current ? inputSize.current.value : dress.size}
-                </p>
+                <button onClick={() => handleEdit()}>Valider</button>
+              </div>
+            ) : (
+              <>
+                <>
+                  <h4>
+                    {inputName.current && inputName.current
+                      ? inputName.current.value
+                      : dress.name}
+                  </h4>{' '}
+                  &nbsp;
+                  <p>
+                    Prix:{' '}
+                    {inputPrice.current
+                      ? inputPrice.current.value
+                      : dress.price}
+                  </p>
+                  <p>
+                    Taille:{' '}
+                    {inputSize.current ? inputSize.current.value : dress.size}
+                  </p>
+                </>
               </>
-            </>
-          )}
+            )}
+          </div>
+          {display}
         </div>
-        {display}
-      </div>
+      </Link>
     </div>
   );
 };

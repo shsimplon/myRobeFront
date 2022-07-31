@@ -20,7 +20,7 @@ import HomeAdmin from './pages/AdminPage/HomeAdmin';
 import Home from './components/templates/Home';
 import DressDetails from './pages/pageDresses/DressDetails';
 
-export function App({}) {
+export function App() {
   const { i18n } = useTranslation();
 
   return (
@@ -39,10 +39,7 @@ export function App({}) {
           element={<PrivateRouteAdmin component={<HomeAdmin />} />}
         />
         <Route path="/authentification/" element={<ModaleAuthentification />} />
-        {/* <Route
-          path="/robe/detail/:id"
-          element={<DressDetails dress={dress} />}
-        /> */}
+        <Route path="/robe/detail/:id" element={<DressDetails />} />
       </Routes>
     </BrowserRouter>
   );

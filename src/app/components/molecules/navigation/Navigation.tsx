@@ -15,8 +15,6 @@ const NavigationComponent = () => {
   const [users, setUsers] = useState([]);
 
   const userState = useSelector((state: { user: userStore }) => state.user);
-  console.log('userState', userState);
-
   const dispatch = useDispatch();
   useEffect(() => {
     getUsers();
@@ -24,8 +22,6 @@ const NavigationComponent = () => {
 
   const logoutUser = async () => {
     const user = await userServices.logout();
-    console.log('user', user);
-
     await dispatch(logout());
     navigate('/');
     notifySuccess(`Vous êtes hors ligne !`);
@@ -49,11 +45,9 @@ const NavigationComponent = () => {
   return (
     <Navigation>
       <div style={{ display: 'flex', gap: '50px' }}>
-        {/* <MenuBurger
-          alt=""
-          src="https://static.overlay-tech.com/assets/6cfd6b5a-bf15-40b5-88c3-a71f437407bd.svg"
-        /> */}
-        <img src="../logo.png" alt="image logo" id="image" />
+        <Link to="/">
+          <img src="/logo.png" alt="image logo" id="image" />
+        </Link>
       </div>
       <div style={{ display: 'flex', gap: '30px' }}>
         <Link to="/dress/favoris">
