@@ -8,7 +8,7 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, NavigationType } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../styles/index.scss';
 import { useSelector } from 'react-redux';
@@ -19,6 +19,9 @@ import { AccueilPage } from './pages/AccueilPage/Loadable';
 import HomeAdmin from './pages/AdminPage/HomeAdmin';
 import Home from './components/templates/Home';
 import DressDetails from './pages/pageDresses/DressDetails';
+import ShoopingCart from './pages/pageDresses/ShoopingCart';
+import NavigationComponent from './components/molecules/navigation/Navigation';
+import FooterComponent from './components/organisms/footer/Footer';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -32,6 +35,8 @@ export function App() {
       >
         <meta name="description" content="A React Boilerplate application" />
       </Helmet>
+      <NavigationComponent />
+
       <Routes>
         <Route path="/" element={<AccueilPage />} />
         <Route
@@ -40,7 +45,9 @@ export function App() {
         />
         <Route path="/authentification/" element={<ModaleAuthentification />} />
         <Route path="/robe/detail/:id" element={<DressDetails />} />
+        <Route path="/panier" element={<ShoopingCart />} />
       </Routes>
+      <FooterComponent />
     </BrowserRouter>
   );
 }

@@ -18,4 +18,20 @@
       font-size: clamp(10px, 4em, 18px);
     }
   }
+   .form-detail {
+      display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    gap: 0rem;
+    input {
+      width: 75px;
+      padding: 8px;
+      border: 2px solid #bb8a5d;
+      font-size: 18px;
+      margin-bottom: 3rem;
+    }
+    button {
+        margin: 0;
+        width: 30%;    }
+  }
 }

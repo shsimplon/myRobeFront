@@ -10,8 +10,8 @@ import { Navigation, MenuBurger } from './navigation.style';
 import { notifySuccess } from 'utils/toastify';
 
 const NavigationComponent = () => {
+  let totalDress = 0;
   let navigate = useNavigate();
-
   const [users, setUsers] = useState([]);
 
   const userState = useSelector((state: { user: userStore }) => state.user);
@@ -20,6 +20,13 @@ const NavigationComponent = () => {
     getUsers();
   }, []);
 
+  const shoppingCart = useSelector((state: { cart: any }) => state.cart);
+  const totalItems = () => {
+    for (const item of shoppingCart.cart) {
+      totalDress += item.quantity;
+    }
+  };
+  totalItems();
   const logoutUser = async () => {
     const user = await userServices.logout();
     await dispatch(logout());
@@ -57,12 +64,13 @@ const NavigationComponent = () => {
             src="https://static.overlay-tech.com/assets/dd011da0-9f6a-4023-9d03-f71c4f8b1f9f.svg"
           />
         </Link>
-        <Link to="dress/panier">
+        <Link to="/panier">
           <img
             id="image-navigation"
             alt="icon-panier"
             src="https://static.overlay-tech.com/assets/cdb01ef3-6f67-477a-a321-2f3877f665fc.svg"
           />
+          <span className="notif">{totalDress}</span>
         </Link>
 
         <Link to="/authentification">

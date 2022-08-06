@@ -66,48 +66,45 @@ const CardDress = ({ dress }) => {
         key={dress.id}
       >
         <img src={dress.image} alt={'photo de ' + dress.name} />
-
-        <div className="infos">
-          <div className="title">
-            {edit ? (
-              <div>
-                <span>Name : </span>
-                <input defaultValue={dress.name} ref={inputName} autoFocus />
-                <br />
-                <span>Prix : </span>
-                <input defaultValue={dress.price} ref={inputPrice} autoFocus />
-                <br />
-                <span>Taille : </span>
-                <input defaultValue={dress.size} ref={inputSize} autoFocus />
-                &nbsp;
-                <button onClick={() => handleEdit()}>Valider</button>
-              </div>
-            ) : (
-              <>
-                <>
-                  <h4>
-                    {inputName.current && inputName.current
-                      ? inputName.current.value
-                      : dress.name}
-                  </h4>{' '}
-                  &nbsp;
-                  <p>
-                    Prix:{' '}
-                    {inputPrice.current
-                      ? inputPrice.current.value
-                      : dress.price}
-                  </p>
-                  <p>
-                    Taille:{' '}
-                    {inputSize.current ? inputSize.current.value : dress.size}
-                  </p>
-                </>
-              </>
-            )}
-          </div>
-          {display}
-        </div>
       </Link>
+      <div className="infos">
+        <div className="title">
+          {edit ? (
+            <div>
+              <span>Name : </span>
+              <input defaultValue={dress.name} ref={inputName} autoFocus />
+              <br />
+              <span>Prix : </span>
+              <input defaultValue={dress.price} ref={inputPrice} autoFocus />
+              <br />
+              <span>Taille : </span>
+              <input defaultValue={dress.size} ref={inputSize} autoFocus />
+              &nbsp;
+              <button onClick={() => handleEdit()}>Valider</button>
+            </div>
+          ) : (
+            <>
+              <>
+                <h4>
+                  {inputName.current && inputName.current
+                    ? inputName.current.value
+                    : dress.name}
+                </h4>{' '}
+                &nbsp;
+                <p>
+                  Prix:{' '}
+                  {inputPrice.current ? inputPrice.current.value : dress.price}
+                </p>
+                <p>
+                  Taille:{' '}
+                  {inputSize.current ? inputSize.current.value : dress.size}
+                </p>
+              </>
+            </>
+          )}
+        </div>
+        {display}
+      </div>
     </div>
   );
 };

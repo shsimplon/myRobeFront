@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import CardDress from './CardDress';
 import { dress, dressesStore } from '../../../types/dress';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import NavigationComponent from '../../components/molecules/navigation/Navigation';
+import { addDressToCart } from 'features/addToCart.slice';
 
 const DressDetails = () => {
+  const [nbDress, setNbDress] = useState(1);
+  const dispatch = useDispatch();
+
   const dressState = useSelector(
     (state: { dress: dressesStore }) => state.dress,
   );
@@ -14,9 +18,21 @@ const DressDetails = () => {
 
   const productClicked = dresses.findIndex(obj => obj.id === id);
 
+  const updateDress = e => {
+    setNbDress(Number(e.target.value));
+  };
+
+  const addToCart = e => {
+    e.preventDefault();
+    const itemAdded = {
+      ...dresses[productClicked],
+      quantity: nbDress,
+    };
+    dispatch(addDressToCart(itemAdded));
+  };
+
   return (
     <>
-      <NavigationComponent />
       <div className="dress-detail">
         <img
           //@ts-ignore
@@ -32,26 +48,26 @@ const DressDetails = () => {
           </p>
           <p className="info-taille">
             {' '}
-            Taille: {dresses && dresses[productClicked].size}
+            <strong> Taille</strong>: {dresses && dresses[productClicked].size}
           </p>
           <p className="info-description">
             {' '}
-            Description: {dresses && dresses[productClicked].description}
+            <strong> Description </strong>:{' '}
+            {dresses && dresses[productClicked].description}
           </p>
+
+          <form className="form-detail" onSubmit={addToCart}>
+            <label htmlFor="quantity"> </label>
+            <strong> Quantité</strong>
+            <input
+              type="number"
+              id="quanitity"
+              value={nbDress}
+              onChange={updateDress}
+            />
+            <button>Ajouter au panier</button>
+          </form>
         </div>
-        {/* <form onSubmit={addToCart}>
-          <label htmlFor="quantity">Quantité</label>
-          <input
-            type="number"
-            id="quanitity"
-            value={nbMugs}
-            onChange={updateMugs}
-          />
-          <button>Ajouter au panier</button>
-          <span 
-          ref={addingInfo}
-          className="adding-info"></span>
-        </form> */}
       </div>
     </>
   );
