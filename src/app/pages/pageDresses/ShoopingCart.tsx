@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deletObjectCart, updateChoopingCart } from 'features/addToCart.slice';
 import { deleteDress } from '../../../services/dressService';
 import { AiOutlineDelete } from 'react-icons/ai';
+import AddReservation from '../reservation/AddReservation';
+import ModalReservation from '../reservation/ModalReservation';
 
 const ShoopingCart = () => {
   const cartStore = useSelector((state: { cart: any }) => state.cart);
@@ -68,7 +70,8 @@ const ShoopingCart = () => {
           ))}
         </ul>
         <p className="total-price">Total : {`${totalPrice.toFixed(2)}€`}</p>
-        <button className="btn-cart">Réserver</button>
+        {/* <AddReservation /> */}
+        <ModalReservation />
       </div>
     </div>
   );

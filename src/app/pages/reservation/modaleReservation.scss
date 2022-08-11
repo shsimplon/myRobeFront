@@ -1,0 +1,30 @@
+.modaleReservation{
+    box-shadow: 10px 10px  10px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+    height: auto;
+    max-width: 600px;
+    margin: auto;
+    height: 50vh;
+    margin-top: 2rem;
+    padding-left: 1rem;
+
+    .closeModale  {
+        color: #BB8A5E;
+    }
+
+}
+
+.buttonReservation{
+    background: none;
+    font-size: clamp(0.5rem, 10vw, 1rem);
+    padding-top: 2rem;
+    width: 50%;
+    cursor: pointer;
+    &:hover {
+        background: none;
+      }
+}
+
+.closeModale{
+    margin-left: 35rem
+}

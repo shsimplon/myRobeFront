@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import CardDress from './CardDress';
-import { dress, dressesStore } from '../../../types/dress';
+import React, { useState } from 'react';
+import { dressesStore } from '../../../types/dress';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import NavigationComponent from '../../components/molecules/navigation/Navigation';
 import { addDressToCart } from 'features/addToCart.slice';
 
 const DressDetails = () => {

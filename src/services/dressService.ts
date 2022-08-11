@@ -12,6 +12,6 @@ export const updateDress = async (data: dress) => {
 };
 export const deleteDress = async (data: dress, id: string) => {
   console.log('datazzzzz', data);
-
+  //verifier la route
   return await http.delete('/dress/' + id, { data });
 };

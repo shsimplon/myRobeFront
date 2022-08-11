@@ -5,7 +5,6 @@ import NavigationComponent from '../../components/molecules/navigation/Navigatio
 const HomeAdmin = () => {
   return (
     <div>
-      <NavigationComponent />
       <DressesList />
     </div>
   );

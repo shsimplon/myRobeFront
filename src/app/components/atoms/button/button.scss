@@ -1,21 +1,16 @@
 button {
-    height: 5vh;
-        border-radius: 7px;
-        font-size: clamp(0.1rem, 10vw, 0.5rem); 
-margin: auto;
-    resize: none;
-    width: 20%;
-align-items: center;
+  height: 5vh;
+  border-radius: 7px;
+  font-size: clamp(0.1rem, 10vw, 0.5rem);
+  margin: auto;
+  resize: none;
+  width: 20%;
+  align-items: center;
 
- 
- background:#BB8A5E;
-    ; 
-    color:black;
-    &:hover {
-
-        background: #BB8A5E ;
-opacity:30%    
-    }
-
+  background: #bb8a5e;
+  color: black;
+  &:hover {
+    background: #bb8a5e;
+    opacity: 30%;
+  }
 }
-
