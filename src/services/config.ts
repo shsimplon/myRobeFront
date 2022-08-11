@@ -14,11 +14,11 @@ http.interceptors.request.use(request => {
     request.headers[
       'Authorization'
     ] = `Bearer ${state.user.user?.access_token}`;
-    request.headers['Access-Control-Allow-Methods'] =
-      'POST, GET, OPTIONS, PUT, DELETE';
-    request.headers['Access-Control-Allow-Headers'] =
-      'Origin, Content-Type, Accept, Authorization, X-Request-With';
-    request.headers['Access-Control-Allow-Origin'] = '*';
+    // request.headers['Access-Control-Allow-Methods'] =
+    //   'POST, GET, OPTIONS, PUT, DELETE';
+    // request.headers['Access-Control-Allow-Headers'] =
+    //   'Origin, Content-Type, Accept, Authorization, X-Request-With';
+    // request.headers['Access-Control-Allow-Origin'] = '*';
   }
   return request;
 });
