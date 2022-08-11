@@ -31,7 +31,7 @@ const FormLogin = props => {
         } else navigate('/');
       }
     } catch (error: any) {
-      console.log(error);
+      notifyError(error.response.data.message);
     }
   };
 

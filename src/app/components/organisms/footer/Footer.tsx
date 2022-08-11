@@ -40,7 +40,7 @@ const FooterComponent = () => {
         </a>
         <a href="https://fr-fr.facebook.com/">
           {' '}
-          <Twitter alt="facebook/" src="/vector-3.png" />
+          <Twitter alt="facebook" src="/vector-3.png" />
         </a>
         <a href="https://www.instagram.com/?hl=fr">
           {' '}
