@@ -2,13 +2,10 @@ import styled from 'styled-components';
 
 export const Contact = styled.div`
   background-color: ${props => props.theme.colors.white};
-  padding: 43px 98px 103px 24px;
+  padding-top: 43px;
   position: relative;
 `;
-export const Frame40 = styled.div`
-  padding: 10px;
-  position: relative;
-`;
+
 export const Rectangle14 = styled.div`
   width: 470px;
   margin: auto;
@@ -21,14 +18,13 @@ export const Rectangle14 = styled.div`
 export const Frame41 = styled.div`
   background-color: ${props => props.theme.colors.white};
   padding: 40px 35.99px 40px 36px;
+  transform: translate(30%, -80%);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  position: absolute;
-  right: 48px;
-  bottom: 54.92px;
-  transform: translate(-40%, -0%);
-  border: 1px solid ${props => props.theme.colors.peachPuff};
+  width: 50%;
+  margin: auto;
+  border: 1px solid #bb8a5d;
   @media (max-width: 950px) {
     transform: translate(-0%, -0%);
     bottom: auto;

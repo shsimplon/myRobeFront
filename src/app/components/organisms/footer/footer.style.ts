@@ -5,12 +5,23 @@ export const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10rem;
+  margin-top: 2rem;
   border: solid 2px #dcc9ce;
   background: #dcc9ce;
+  @media (max-width: 950px) {
+    margin-top: 5rem;  }
+  @media (max-width: 680px) {
+    display: flex;
+    flex-direction: column;
+    gap:20px
+  }
+}
 `;
 export const Twitter = styled.img`
-  width: 25px;
+  height: 26px;
+  @media (max-width: 400px) {
+    height: 18px;
+  }
 `;
 export const Contact108RueLemercier75017Paris = styled.p`
   max-width: 267.58px;
@@ -31,4 +42,7 @@ export const ActualitesActualitesTelevisionLivreD = styled.p`
   font-size: ${props => props.theme.fonts.clickerScript32Regular.size};
   font-weight: ${props => props.theme.fonts.clickerScript32Regular.weight};
   line-height: ${props => props.theme.fonts.clickerScript32Regular.lineHeight};
+  @media (max-width: 400px) {
+    font-size: 12px;
+  }
 `;

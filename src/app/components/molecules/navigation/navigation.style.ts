@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Navigation = styled.div`
   background-color: ${props => props.theme.colors.transparentSilver};
   width: 100%;
-  padding: 1rem 1rem;
+  padding: 2rem 2rem;
   display: flex;
   justify-content: space-between;
   @media (max-width: 500px) {

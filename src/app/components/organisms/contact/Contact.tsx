@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Contact,
-  Frame40,
   Rectangle14,
   Frame41,
   Input,
@@ -15,9 +14,8 @@ import {
 const ContactComponent = () => {
   return (
     <Contact>
-      <Frame40>
-        <Rectangle14 />
-      </Frame40>
+      <Rectangle14 />
+
       <Frame41>
         <Input>Nom</Input>
         <Line3
