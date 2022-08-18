@@ -8,8 +8,7 @@ import { userServices } from 'services';
 import { notifyError, notifySuccess } from 'utils/toastify';
 import { userComplete } from '../../../../types/user';
 import FormLogin from './FormLogin';
-import * as yup from 'yup';
-import { userSchema } from 'validation/UserValidation';
+
 const Form = signup => {
   let navigate = useNavigate();
   const [email, setEmail] = useState('');
