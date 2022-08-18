@@ -1,25 +1,24 @@
-
-
-.authentification{
-   
-    text-align: center;
-  
-.connect-modal {
-    margin: 5rem;
+.authentification {
+  .connect-modal {
+     margin: 4rem;
+    @media screen and (max-width: 780px) {
+     margin: 4rem 0 4rem 0;
+     }
+    background-image: url('../../../../public/image-connexion2.jpg');
     .header-btn {
-        padding: 4px 14px;
-        border-radius: 10px 10px 0 0; 
+      border-radius: 10px 10px 0 0;
 
-    transition: 0.2s;
+      transition: 0.2s;
       button {
-       width: 10%;
+        @media screen and (max-width: 1050px) {
+            width: 42%;
+
+            }
         &:hover {
-            filter: brightness(80%);
-            transform: translateX(2px);
-          }
+          filter: brightness(80%);
+          transform: translateX(2px);
+        }
       }
-      
     }
-   
-}
+  }
 }

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userServices } from 'services';
-import { notifySuccess } from 'utils/toastify';
+import { notifyError, notifySuccess } from 'utils/toastify';
 import { userComplete } from '../../../../types/user';
 import FormLogin from './FormLogin';
 
@@ -18,6 +18,9 @@ const Form = signup => {
   //   const [role, setRole] = useState('user');
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('');
+  const [messageEmail, setMessageEmail] = useState('');
+  const [messageUsername, setMessageUsername] = useState('');
+  const [messagePassword, setMessagePassword] = useState('');
   const dispatch = useDispatch();
 
   const handleClick = async e => {
@@ -25,13 +28,13 @@ const Form = signup => {
     try {
       const role = '';
       if (email === '' || email == null) {
-        setMessage('Email est invalid');
+        setMessageEmail('Email invalide');
         setError(true);
       } else if (username === '' || username == null) {
-        setMessage('Prénom est invalid');
+        setMessageUsername('Prénom invalide');
         setError(true);
       } else if (password === '' || password == null) {
-        setMessage('Prénom est invalid');
+        setMessagePassword('Mot de passe invalide');
         setError(true);
       } else {
         setMessage('');
@@ -51,7 +54,7 @@ const Form = signup => {
       <FormLogin />;
       // navigate('/authentification');
     } catch (error: any) {
-      setError(true);
+      notifyError(error.response.data.message);
     }
   };
 
@@ -66,8 +69,13 @@ const Form = signup => {
             placeholder="Prénom"
             value={username}
             onChange={e => setUsername(e.target.value)}
-          />
-
+          />{' '}
+          <span
+            className="message-error"
+            style={{ marginBottom: '1rem', display: error ? 'block' : 'none' }}
+          >
+            {messageUsername}
+          </span>
           <input
             type="address"
             name="Adresse"
@@ -82,9 +90,7 @@ const Form = signup => {
             placeholder="Télephone"
             id="phone"
             value={phone}
-            onChange={(e: {
-              target: { value: React.SetStateAction<string> };
-            }) => setPhone(e.target.value)}
+            onChange={e => setPhone(e.target.value)}
           />
           <input
             type="email"
@@ -94,7 +100,13 @@ const Form = signup => {
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-
+          <span
+            className="message-error"
+            style={{ marginBottom: '1rem', display: error ? 'block' : 'none' }}
+          >
+            {' '}
+            {messageEmail}
+          </span>
           <input
             type="password"
             name="Mot de passe"
@@ -103,7 +115,12 @@ const Form = signup => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-
+          <span
+            className="message-error"
+            style={{ marginBottom: '1rem', display: error ? 'block' : 'none' }}
+          >
+            {messagePassword}{' '}
+          </span>
           <button
             type="submit"
             className="button"

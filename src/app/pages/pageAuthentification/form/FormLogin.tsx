@@ -2,7 +2,6 @@ import { login } from 'features/user.slice';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { notifyError, notifySuccess } from 'utils/toastify';
 import { userServices } from '../../../../services/index';
 

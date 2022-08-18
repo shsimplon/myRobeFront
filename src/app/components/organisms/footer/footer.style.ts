@@ -17,12 +17,6 @@ export const Footer = styled.div`
   }
 }
 `;
-export const Twitter = styled.img`
-  height: 26px;
-  @media (max-width: 400px) {
-    height: 18px;
-  }
-`;
 export const Contact108RueLemercier75017Paris = styled.p`
   max-width: 267.58px;
   color: ${props => props.theme.colors.black};

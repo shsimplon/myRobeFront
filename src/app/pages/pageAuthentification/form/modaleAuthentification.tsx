@@ -11,6 +11,8 @@ const ModaleAuthentification = props => {
   return (
     <div className="authentification">
       <div className="connect-modal">
+        {signup ? <FormRegister /> : <FormLogin />}
+
         <div className="header-btn">
           <Button
             style={{
@@ -37,7 +39,6 @@ const ModaleAuthentification = props => {
             Se Connecter
           </Button>
         </div>
-        {signup ? <FormRegister /> : <FormLogin />}
       </div>
     </div>
   );

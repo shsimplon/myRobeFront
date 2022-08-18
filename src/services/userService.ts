@@ -16,8 +16,6 @@ export const isAuth = async () => {
 };
 
 export const logout = async () => {
-  console.log('hhhh');
-
   return await http.get('/user/logout');
 };
 
