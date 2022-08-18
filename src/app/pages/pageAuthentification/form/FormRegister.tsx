@@ -1,3 +1,4 @@
+/* eslint-disable no-self-compare */
 import Button from 'app/components/atoms/button/Button';
 import FormMolecule from 'app/components/molecules/label-input/FormsMolecule';
 import React, { useState } from 'react';
@@ -7,7 +8,8 @@ import { userServices } from 'services';
 import { notifyError, notifySuccess } from 'utils/toastify';
 import { userComplete } from '../../../../types/user';
 import FormLogin from './FormLogin';
-
+import * as yup from 'yup';
+import { userSchema } from 'validation/UserValidation';
 const Form = signup => {
   let navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -22,19 +24,29 @@ const Form = signup => {
   const [messageUsername, setMessageUsername] = useState('');
   const [messagePassword, setMessagePassword] = useState('');
   const dispatch = useDispatch();
+  let regexEmail = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
+  let passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
   const handleClick = async e => {
     e.preventDefault();
     try {
       const role = '';
-      if (email === '' || email == null) {
-        setMessageEmail('Email invalide');
+      if (email === '' || email === null) {
+        setMessageEmail('Email est obligatoire ');
         setError(true);
+      } else if (!regexEmail.test(email)) {
+        return notifyError(
+          'veuillez rentrer un email valide: example@example.(com,fr,org...)',
+        );
+      } else if (!passw.test(password)) {
+        return notifyError(
+          ' Le mot de passe doit comporter  6 à 20 caractères contenant au moins un chiffre , une majuscule et une lettre minuscule',
+        );
       } else if (username === '' || username == null) {
-        setMessageUsername('Prénom invalide');
+        setMessageUsername('Prénom est obligatoire');
         setError(true);
       } else if (password === '' || password == null) {
-        setMessagePassword('Mot de passe invalide');
+        setMessagePassword('Mot de passe est obligatoire');
         setError(true);
       } else {
         setMessage('');
@@ -49,10 +61,9 @@ const Form = signup => {
         password,
         role,
       });
-      const user = response.data;
+
       notifySuccess('Votre compte est enregistré, veuillez vous connectez!');
       <FormLogin />;
-      // navigate('/authentification');
     } catch (error: any) {
       notifyError(error.response.data.message);
     }
@@ -66,7 +77,7 @@ const Form = signup => {
             id="name"
             type="name"
             name="Prenom"
-            placeholder="Prénom"
+            placeholder="Prénom *"
             value={username}
             onChange={e => setUsername(e.target.value)}
           />{' '}
@@ -80,7 +91,7 @@ const Form = signup => {
             type="address"
             name="Adresse"
             id="address"
-            placeholder="address"
+            placeholder="Address"
             value={address}
             onChange={e => setAddress(e.target.value)}
           />
@@ -94,8 +105,9 @@ const Form = signup => {
           />
           <input
             type="email"
+            required
             name="Email"
-            placeholder="Email"
+            placeholder="Email *"
             id="Email"
             value={email}
             onChange={e => setEmail(e.target.value)}
@@ -110,7 +122,7 @@ const Form = signup => {
           <input
             type="password"
             name="Mot de passe"
-            placeholder="Mot de passe"
+            placeholder="Mot de passe *"
             id="Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
