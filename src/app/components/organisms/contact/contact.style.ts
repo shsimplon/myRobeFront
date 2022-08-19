@@ -30,6 +30,12 @@ export const Frame41 = styled.div`
     bottom: auto;
     right: 28px;
   }
+  @media screen and (max-width: 720px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 export const Input = styled.p`
   height: 12px;

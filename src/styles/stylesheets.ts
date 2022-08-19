@@ -15,7 +15,7 @@ export default {
   fonts: {
     ingridDarling40Regular: {
       family: 'Ingrid Darling',
-      size: '40px',
+      size: '32px',
       weight: '400',
       lineHeight: 'normal',
     },

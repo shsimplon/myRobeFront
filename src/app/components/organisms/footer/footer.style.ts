@@ -21,7 +21,7 @@ export const Contact108RueLemercier75017Paris = styled.p`
   max-width: 267.58px;
   color: ${props => props.theme.colors.black};
   text-align: center;
-  letter-spacing: 2.4px;
+  letter-spacing: 1.4px;
   font-family: ${props => props.theme.fonts.ingridDarling24Regular.family};
   font-size: ${props => props.theme.fonts.ingridDarling24Regular.size};
   font-weight: ${props => props.theme.fonts.ingridDarling24Regular.weight};
@@ -31,7 +31,7 @@ export const ActualitesActualitesTelevisionLivreD = styled.p`
   max-width: 239.83px;
   color: ${props => props.theme.colors.black};
   text-align: center;
-  letter-spacing: 3.2px;
+  letter-spacing: 1.2px;
   font-family: ${props => props.theme.fonts.clickerScript32Regular.family};
   font-size: ${props => props.theme.fonts.clickerScript32Regular.size};
   font-weight: ${props => props.theme.fonts.clickerScript32Regular.weight};

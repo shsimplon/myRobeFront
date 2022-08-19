@@ -83,8 +83,14 @@ img {
   height: 90%;
   width: 100%;
   cursor: pointer;
-  @media screen and (max-width: 470px) {
-    height: 50%;
+  @media screen and (max-width: 420px) {
+    height: 80%;
+    width: 100%;
+    margin: auto;
+  }
+  @media screen and (max-width: 400px) {
+    height: 70%;
+    width: 100%;
     margin: auto;
   }
 }
@@ -117,3 +123,4 @@ img {
     height: auto;
     width: 100%
 }
+
