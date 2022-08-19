@@ -31,23 +31,23 @@ const FooterComponent = () => {
       <div className="socialNetwork">
         <a href="https://twitter.com/?lang=fr">
           {' '}
-          <img alt="twitter" src="/vector-1.png" />
+          <img src="/twitter.png" alt="twitter" />
         </a>
         <a href="https://www.messenger.com/">
           {' '}
-          <img alt="messenger" src="/vector-2.png" />
+          <img src="/messenger.png" alt="messenger" />
         </a>
         <a href="https://fr-fr.facebook.com/">
           {' '}
-          <img alt="facebook" src="/vector-3.png" />
+          <img src="/facebook.png" alt="facebook" />
         </a>
         <a href="https://www.instagram.com/?hl=fr">
           {' '}
-          <img alt="instagram" src="/vector-4.png" />
+          <img src="/instagram.png" alt="instagram" />
         </a>
         <a href="https://www.whatsapp.com/?lang=fr">
           {' '}
-          <img alt="whatsapp" src="/vector.png" />
+          <img src="/whatsapp.png" alt="whatsapp" />
         </a>
       </div>
     </Footer>
