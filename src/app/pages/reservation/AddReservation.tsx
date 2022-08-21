@@ -11,8 +11,8 @@ const AddReservation = ({ setIsOpen }) => {
   const [date_departure, setdate_departure] = useState('');
   const [return_date, setreturn_date] = useState('');
   const [message, setMessage] = useState('');
-  const userState = useSelector((state: { user: userStore }) => state.user);
-  const userId = userState.user?.id && userState.user?.id;
+  let userState = useSelector((state: { user: userStore }) => state.user);
+  let userId = userState.user?.id && userState.user?.id;
   console.log('userId', userId);
   const cartStore = useSelector((state: { cart: any }) => state.cart);
   const dressId = cartStore.cart[0].id && cartStore.cart[0].id;
@@ -20,9 +20,7 @@ const AddReservation = ({ setIsOpen }) => {
 
   const dressQuantity =
     cartStore.cart[0].quantity && cartStore.cart[0].quantity;
-  //   const dresses = cartStore.cart.map(dress => {
-  //     return dress.id;
-  //   });
+
   const submitReservation = async e => {
     e.preventDefault();
     if (!userId) {
