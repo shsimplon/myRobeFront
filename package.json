@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "3.6.2",
     "@reduxjs/toolkit": "1.7.1",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
@@ -61,7 +62,6 @@
     "sass": "1.53.0",
     "serve": "13.0.2",
     "shelljs": "0.8.5",
-    "socket.io-client": "4.5.1",
     "styled-components": "5.3.3",
     "stylelint": "14.2.0",
     "stylelint-config-recommended": "6.0.0",

@@ -12,10 +12,12 @@ const AddReservation = ({ setIsOpen }) => {
   const [return_date, setreturn_date] = useState('');
   const [message, setMessage] = useState('');
   const userState = useSelector((state: { user: userStore }) => state.user);
-  const userId = userState.user?.id;
+  const userId = userState.user?.id && userState.user?.id;
   console.log('userId', userId);
   const cartStore = useSelector((state: { cart: any }) => state.cart);
   const dressId = cartStore.cart[0].id && cartStore.cart[0].id;
+  console.log('dressId', dressId);
+
   const dressQuantity =
     cartStore.cart[0].quantity && cartStore.cart[0].quantity;
   //   const dresses = cartStore.cart.map(dress => {

@@ -14,7 +14,6 @@ import '../styles/index.scss';
 import { useSelector } from 'react-redux';
 import { userStore } from 'types/user';
 import ModaleAuthentification from './pages/pageAuthentification/form/modaleAuthentification';
-
 import { AccueilPage } from './pages/AccueilPage/Loadable';
 import HomeAdmin from './pages/AdminPage/HomeAdmin';
 import Home from './components/templates/Home';
@@ -44,7 +43,9 @@ export function App() {
           element={<PrivateRouteAdmin component={<HomeAdmin />} />}
         />
         <Route path="/authentification/" element={<ModaleAuthentification />} />
+
         <Route path="/robe/detail/:id" element={<DressDetails />} />
+
         <Route path="/panier" element={<ShoopingCart />} />
       </Routes>
       <FooterComponent />
@@ -61,6 +62,8 @@ const PrivateRouteAdmin = ({
   component: JSX.Element;
 }) => {
   const userState = useSelector((state: { user: userStore }) => state.user);
+  console.log('userState.isLogged', userState.isLogged);
+
   return userState.isLogged && userState.user?.role === ('A' as any) ? (
     Component
   ) : (

@@ -16,9 +16,9 @@ const NavigationComponent = () => {
 
   const userState = useSelector((state: { user: userStore }) => state.user);
   const dispatch = useDispatch();
-  useEffect(() => {
-    getUsers();
-  }, []);
+  //   useEffect(() => {
+  //     getUsers();
+  //   }, []);
 
   const shoppingCart = useSelector((state: { cart: any }) => state.cart);
   const totalItems = () => {
@@ -46,8 +46,6 @@ const NavigationComponent = () => {
       }
     }
   };
-
-  useEffect(() => {}, []);
 
   return (
     <Navigation>

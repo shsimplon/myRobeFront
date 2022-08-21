@@ -8,11 +8,9 @@ import FooterComponent from '../organisms/footer/Footer';
 const Home = () => {
   return (
     <div className="home">
-      {/* <NavigationComponent /> */}
       <SideSearch />
       <DressesListHome />
       <ContactComponent />
-      {/* <FooterComponent /> */}
     </div>
   );
 };

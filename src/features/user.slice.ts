@@ -13,6 +13,8 @@ const userSlice = createSlice({
   reducers: {
     login: (state, action: PayloadAction<user>) => {
       const user = action.payload;
+      console.log('user', user);
+
       state.user = user;
       state.isLogged = true;
     },

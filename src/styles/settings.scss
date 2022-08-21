@@ -22,6 +22,7 @@ $shadow: 0 3px 20px rgba(0, 0, 0, 0.356);
 * {
   margin: 0;
   padding: 0;
+  resize: none;
   box-sizing: border-box;
   list-style-type: none;
   outline: none;
@@ -49,18 +50,18 @@ body {
   margin: 0 auto;
 }
 
-input[type='submit'] {
-  background: none;
-  border: none;
-  cursor: pointer;
-  background: red;
-  transition: 0.2s;
+// input[type='submit'] {
+//   background: none;
+//   border: none;
+//   cursor: pointer;
+//   background: red;
+//   transition: 0.2s;
 
-  &:hover {
-    filter: brightness(80%);
-    transform: translateX(2px);
-  }
-}
+//   &:hover {
+//     filter: brightness(80%);
+//     transform: translateX(2px);
+//   }
+// }
 
 h1,
 h2,
@@ -113,6 +114,7 @@ img {
 }
 .contact {
   display: flex;
+  gap: 50px;
 }
 .socialNetwork {
   gap: 25px;
@@ -123,4 +125,3 @@ img {
     height: auto;
     width: 100%
 }
-
