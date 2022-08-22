@@ -1,10 +1,7 @@
-import NavigationComponent from 'app/components/molecules/navigation/Navigation';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deletObjectCart, updateChoopingCart } from 'features/addToCart.slice';
-import { deleteDress } from '../../../services/dressService';
 import { AiOutlineDelete } from 'react-icons/ai';
-import AddReservation from '../reservation/AddReservation';
 import ModalReservation from '../reservation/ModalReservation';
 
 const ShoopingCart = () => {
@@ -30,14 +27,12 @@ const ShoopingCart = () => {
     }
   }
 
-  //   const deleteDressOfCart = id => {
-  //     const indexObject = cartStore.cart.findIndex(data => {
-  //       return data.id;
-  //     });
-  //     console.log('indexObject', indexObject);
-
-  //     dispatch(deletObjectCart(indexObject));
-  //   };
+  const deleteDressOfCart = async id => {
+    const indexObject = await cartStore.cart.findIndex(data => {
+      return data.id;
+    });
+    await dispatch(deletObjectCart(indexObject));
+  };
 
   return (
     <div>
@@ -50,12 +45,12 @@ const ShoopingCart = () => {
               <div className="bloc-cart-infos">
                 <h4>{item.name}</h4>
                 <p>Price: {item.price}€</p>
-                {/* <AiOutlineDelete
-                  style={{ color: '#BB8A5D' }}
+                <AiOutlineDelete
+                  style={{ color: '#BB8A5D', cursor: 'pointer' }}
                   onClick={id => {
                     deleteDressOfCart(id);
                   }}
-                ></AiOutlineDelete> */}
+                ></AiOutlineDelete>
               </div>
               <div className="bloc-input">
                 <label htmlFor="quantityInput">Quantité</label>
@@ -70,7 +65,6 @@ const ShoopingCart = () => {
           ))}
         </ul>
         <p className="total-price">Total : {`${totalPrice.toFixed(2)}€`}</p>
-        {/* <AddReservation /> */}
         <ModalReservation />
       </div>
     </div>

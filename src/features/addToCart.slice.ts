@@ -43,13 +43,10 @@ export const cartSlice = createSlice({
       };
     },
     deletObjectCart: (state, action) => {
-      const dressDelected = state.cart.filter(
-        obj => obj.id !== action.payload.id,
+      const dress = state.cart.splice(
+        state.cart.findIndex(obj => obj.id === action.payload),
+        1,
       );
-
-      return {
-        cart: dressDelected,
-      };
     },
   },
 });
