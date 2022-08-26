@@ -1,4 +1,4 @@
-import { createSlice, current, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: any = {
   cart: [],
@@ -20,13 +20,15 @@ export const cartSlice = createSlice({
 
         const newArr = [...state.cart];
         newArr.splice(indexItemAdd, 1, updatedQuantity);
-
         return {
           cart: newArr,
         };
       } else {
         const newArray = [...state.cart];
+        console.log('newArr', newArray);
+
         newArray.push(action.payload);
+
         return {
           cart: newArray,
         };
@@ -43,10 +45,15 @@ export const cartSlice = createSlice({
       };
     },
     deletObjectCart: (state, action) => {
-      const dress = state.cart.splice(
-        state.cart.findIndex(obj => obj.id === action.payload),
-        1,
-      );
+      state.cart.map(cartItem => {
+        if (cartItem.id === action.payload.id) {
+          const nextCartItems = state.cart.filter(
+            item => item.id !== cartItem.id,
+          );
+
+          state.cart = nextCartItems;
+        }
+      });
     },
   },
 });

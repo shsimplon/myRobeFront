@@ -27,11 +27,8 @@ const ShoopingCart = () => {
     }
   }
 
-  const deleteDressOfCart = async id => {
-    const indexObject = await cartStore.cart.findIndex(data => {
-      return data.id;
-    });
-    await dispatch(deletObjectCart(indexObject));
+  const deleteDressOfCart = cart => {
+    dispatch(deletObjectCart(cart));
   };
 
   return (
@@ -39,26 +36,26 @@ const ShoopingCart = () => {
       <div className="global-container">
         <p className="heading-cart">Votre panier :</p>
         <ul className="cart-list">
-          {cartStore.cart.map(item => (
-            <li key={item.id}>
-              <img src={item.image} alt="" />
+          {cartStore.cart.map(dress => (
+            <li key={dress.id}>
+              <img src={dress.image} alt="" />
               <div className="bloc-cart-infos">
-                <h4>{item.name}</h4>
-                <p>Price: {item.price}€</p>
+                <h4>{dress.name}</h4>
+                <p>Price: {dress.price}€</p>
                 <AiOutlineDelete
                   style={{ color: '#BB8A5D', cursor: 'pointer' }}
-                  onClick={id => {
-                    deleteDressOfCart(id);
+                  onClick={() => {
+                    deleteDressOfCart(dress);
                   }}
                 ></AiOutlineDelete>
               </div>
               <div className="bloc-input">
                 <label htmlFor="quantityInput">Quantité</label>
                 <input
-                  onChange={e => handleChange(e, item.id)}
+                  onChange={e => handleChange(e, dress.id)}
                   id="quantityInput"
                   type="number"
-                  value={item.quantity}
+                  value={dress.quantity}
                 />
               </div>
             </li>
