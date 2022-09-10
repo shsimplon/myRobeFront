@@ -2,6 +2,7 @@ $color-1: #fb9ad2;
 $color-3: #5bb7f3;
 $color-2: #7d7987;
 $color1: rgb(211, 27, 57);
+$coloButton:#BB8A5D;
 $black1: rgb(36, 36, 36);
 $black2: rgb(49, 49, 49);
 $black3: rgb(70, 70, 70);
@@ -28,6 +29,7 @@ $shadow: 0 3px 20px rgba(0, 0, 0, 0.356);
   outline: none;
   border: none;
   text-decoration: none;
+  outline: none;
 
   &::selection {
     background: goldenrod;

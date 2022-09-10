@@ -32,6 +32,7 @@ export function AccueilPage() {
       }
     }
   };
+
   return (
     <>
       <Helmet>

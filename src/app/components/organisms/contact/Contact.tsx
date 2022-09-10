@@ -1,65 +1,65 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { Contact, Rectangle14, Form, Line3 } from './contact.style';
-import { notifySuccess } from 'utils/toastify';
+import { notifySuccess, notifyError } from 'utils/toastify';
 
 const ContactComponent = () => {
-  const form = useRef(null);
+  const form: React.MutableRefObject<null> = useRef(null);
+
   const sendEmail = e => {
     e.preventDefault();
+    var name = document.forms['form'].name.value;
+    var message = document.forms['form'].message.value;
+    if (!name.replace(/\s+/, '').length || !message.replace(/\s+/, '').length) {
+      alert('veuillez remplir les champs manquants!');
+      return false;
+    } else {
+      emailjs
+        .sendForm(
+          'service_9cpk7ve',
+          'template_7qov02b',
+          form.current as any,
+          'user_YSNgmLruXXfdeJhpbWXuq',
+        )
+        .then(
+          result => {
+            notifySuccess('Votre message a été envoyé avec succès');
+            e.target.reset();
+          },
 
-    emailjs
-      .sendForm(
-        'service_9cpk7ve',
-        'template_7qov02b',
-        form.current as any,
-        'user_YSNgmLruXXfdeJhpbWXuq',
-      )
-      .then(
-        result => {
-          notifySuccess('Votre message a été envoyé avec succès');
-          console.log('message sent');
-          e.target.reset();
-        },
-        error => {
-          console.log(error.text);
-        },
-      );
+          error => {
+            notifyError(error.text);
+          },
+        );
+    }
   };
 
   return (
-    <Contact>
-      <Rectangle14 />
-      <Form ref={form} onSubmit={sendEmail}>
-        <label htmlFor="name">Nom</label>
-        <input className="inputName" type="text" name="name" />
-        <Line3
-          alt=""
-          src="https://static.overlay-tech.com/assets/ca0477d2-59b5-490b-a5f5-88da95a124fe.png"
-        />{' '}
-        <label htmlFor="email">Email</label>
-        <input className="inputEmail" type="email" name="email" />
-        <Line3
-          alt=""
-          src="https://static.overlay-tech.com/assets/ca0477d2-59b5-490b-a5f5-88da95a124fe.png"
-        />
-        <label htmlFor="objec">Objet</label>
-        <input className="inputEmail" type="text" name="object" />
-        <Line3
-          alt=""
-          src="https://static.overlay-tech.com/assets/ca0477d2-59b5-490b-a5f5-88da95a124fe.png"
-        />
-        <label>Message</label>
-        <textarea name="message" />
-        <Line3
-          alt=""
-          src="https://static.overlay-tech.com/assets/4cd5b6e0-a328-4d83-ba80-d9622c1b607a.png"
-        />
-        <button className="inputSubmit" type="submit">
+    <div className="form-contact">
+      <h3 className="h4-Contact">Besoin de plus d’informations ?</h3>
+
+      <form name="form" className="container" ref={form} onSubmit={sendEmail}>
+        <div className="form-control">
+          <input type="text" name="name" required />
+          <label htmlFor="name">Nom *</label>
+        </div>
+        <div className="form-control">
+          <input type="email" name="email" required />
+          <label htmlFor="email">Email *</label>
+        </div>
+        <div className="form-control">
+          <input type="text" name="object" required />
+          <label htmlFor="objec">Objet *</label>
+        </div>
+        <div className="form-control">
+          <textarea name="message" required />
+          <label>Message *</label>
+        </div>
+        <button className="button-contact" type="submit">
           Envoyer
         </button>
-      </Form>
-    </Contact>
+      </form>
+    </div>
   );
 };
 

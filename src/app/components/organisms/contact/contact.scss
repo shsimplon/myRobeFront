@@ -1,0 +1,89 @@
+.form-contact {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  .h4-Contact {
+    padding-left: 22rem;
+    padding-bottom: 2rem;
+    @media (max-width: 900px) {
+      padding-left: 15rem;
+    }
+    @media (max-width: 740px) {
+      padding-left: 10rem;
+    }
+    @media (max-width: 530px) {
+      padding-left: 0rem;
+    }
+  }
+}
+
+.container {
+  border: 1px solid #333;
+  padding: 0rem 2rem 2rem 2rem;
+  border-radius: 6px;
+  margin: auto;
+  max-width: 40vw;
+  display: block;
+  @media (max-width: 600px) {
+    max-width: 100vw;
+  }
+}
+.form-control {
+  position: relative;
+  margin: 20px 0;
+  width: 300px;
+
+  input,
+  textarea {
+    border: 0;
+    width: 25vw;
+    border-bottom: 1px solid #333;
+    font-size: calc(0.8rem + 0.2vw);
+    font-family: inherit;
+    padding: 15px 0;
+    outline: none;
+    transition: all 0.2s ease-in;
+    background: transparent;
+  }
+  input:focus,
+  input:valid,
+  textarea:focus,
+  textarea:valid {
+    border-bottom-color: $coloButton;
+  }
+
+  label {
+    font-size: calc(0.8rem + 0.2vw);
+    position: absolute;
+    top: 15px;
+    left: 0;
+    z-index: -1;
+  }
+  input:focus + label,
+  input:valid + label,
+  textarea:focus + label,
+  textarea:valid + label {
+    color: $coloButton;
+    transform: translateY(-30px);
+    font-size: 14px;
+    transition: all 0.5s ease;
+  }
+}
+.button-contact {
+  display: flex;
+  margin: auto;
+  padding: 0.5rem;
+  background: #bb8a5e;
+  border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+  width: 76px;
+
+  text-align: center;
+  letter-spacing: 1.2px;
+  :hover {
+    box-shadow: inset 0 0 0 30px #dcc9ce, 1px 1px 3px #333;
+    transform: translateX(4px);
+  }
+  :active {
+    transform: scale(0.95);
+  }
+}
