@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import { logout } from 'features/user.slice';
 import React, { useEffect, useState } from 'react';
@@ -49,41 +50,33 @@ const NavigationComponent = () => {
 
   return (
     <Navigation>
-      <div style={{ display: 'flex', gap: '50px' }}>
-        <Link to="/">
-          <img src="/logo.png" alt="image logo" id="image" />
-        </Link>
-      </div>
-      <div style={{ display: 'flex', gap: '30px' }}>
-        <Link to="/dress/favoris">
-          <img
-            alt="icon-corbeille"
-            id="image-navigation"
-            src="https://static.overlay-tech.com/assets/dd011da0-9f6a-4023-9d03-f71c4f8b1f9f.svg"
-          />
-        </Link>
-        <Link to="/panier">
-          <img
-            id="image-navigation"
-            alt="icon-panier"
-            src="https://static.overlay-tech.com/assets/cdb01ef3-6f67-477a-a321-2f3877f665fc.svg"
-          />
-          <span className="notif">{totalDress}</span>
-        </Link>
-
-        <Link to="/authentification">
-          <img
-            id="image-navigation"
-            alt="icon-profil"
-            src="https://static.overlay-tech.com/assets/42a6309f-f647-42fb-b109-44552601b9de.svg"
-          />
-        </Link>
-        {userState.user && (
-          <HiOutlineLogout
-            style={{ color: '#BB8A5D', fontSize: '1.7rem', cursor: 'pointer' }}
-            onClick={logoutUser}
-          />
-        )}
+      <div className="navbarContainer">
+        <nav className="navbar">
+          <a href="/" className=" logo">
+            Dressline
+          </a>
+          <a href="/dress/favoris" className="navbar-link">
+            Robes
+          </a>
+          <a href="/panier" className="navbar-link">
+            Panier
+            <span className="notif">{totalDress}</span>
+          </a>
+          <a href="/authentification" className="navbar-link">
+            Connexion
+          </a>
+          {userState.user && (
+            <HiOutlineLogout
+              style={{
+                color: '#BB8A5D',
+                fontSize: '1.7rem',
+                cursor: 'pointer',
+              }}
+              onClick={logoutUser}
+            />
+          )}
+        </nav>
+        <div className="floating-bg"></div>
       </div>
     </Navigation>
   );

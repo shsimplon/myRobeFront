@@ -24,11 +24,13 @@ const DressesListHome = () => {
 
   return (
     <>
-      <SideSearch
-        value={value}
-        setValue={setValue}
-        handleChange={handleChange}
-      />
+      <div className="nav-heading">
+        <SideSearch
+          value={value}
+          setValue={setValue}
+          handleChange={handleChange}
+        />
+      </div>
       <br />
       <h3>Liste de robes</h3>
 
