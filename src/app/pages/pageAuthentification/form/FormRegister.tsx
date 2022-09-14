@@ -16,7 +16,6 @@ const Form = signup => {
   const [username, setUsername] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
-  //   const [role, setRole] = useState('user');
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('');
   const [messageEmail, setMessageEmail] = useState('');

@@ -25,8 +25,6 @@ const Form = ({ getDresses }) => {
       image,
       price: inputPrice.current && inputPrice.current.value,
     };
-    console.log('data POSTED', data);
-
     await dressService.postDress(data);
     dispatch(addDress(data));
     formRef.current && formRef.current.reset();
