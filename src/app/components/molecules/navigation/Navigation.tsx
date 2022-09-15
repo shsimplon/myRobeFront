@@ -7,7 +7,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { userServices } from 'services';
 import { userStore } from 'types/user';
 import { HiOutlineLogout } from 'react-icons/hi';
-import { Navigation, MenuBurger } from './navigation.style';
 import { notifySuccess } from 'utils/toastify';
 
 const NavigationComponent = () => {
@@ -49,36 +48,34 @@ const NavigationComponent = () => {
   };
 
   return (
-    <Navigation>
-      <div className="navbarContainer">
-        <nav className="navbar">
-          <a href="/" className=" logo">
-            Dressline
-          </a>
-          <a href="/dress/favoris" className="navbar-link">
-            Robes
-          </a>
-          <a href="/panier" className="navbar-link">
-            Panier
-            <span className="notif">{totalDress}</span>
-          </a>
-          <a href="/authentification" className="navbar-link">
-            Connexion
-          </a>
-          {userState.user && (
-            <HiOutlineLogout
-              style={{
-                color: '#BB8A5D',
-                fontSize: '1.7rem',
-                cursor: 'pointer',
-              }}
-              onClick={logoutUser}
-            />
-          )}
-        </nav>
-        <div className="floating-bg"></div>
-      </div>
-    </Navigation>
+    <div className="navbarContainer">
+      <nav className="navbar">
+        <a href="/" className=" logo">
+          Dressline
+        </a>
+        <a href="/dress/favoris" className="navbar-link">
+          Robes
+        </a>
+        <a href="/panier" className="navbar-link">
+          Panier
+          <span className="notif">{totalDress}</span>
+        </a>
+        <a href="/authentification" className="navbar-link">
+          Connexion
+        </a>
+        {userState.user && (
+          <HiOutlineLogout
+            style={{
+              color: '#BB8A5D',
+              fontSize: '1.7rem',
+              cursor: 'pointer',
+            }}
+            onClick={logoutUser}
+          />
+        )}
+      </nav>
+      <div className="floating-bg"></div>
+    </div>
   );
 };
 

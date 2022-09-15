@@ -10,10 +10,6 @@ const SideSearch = ({ value, setValue, handleChange }) => {
   };
   return (
     <div className="sideSearch">
-      {/* <img
-        alt="image of women with dress"
-        src="https://static.overlay-tech.com/assets/b4b9a8fe-fd9b-40d5-b701-5228498427f1.png"
-      /> */}
       <div className="input-control">
         <label htmlFor="search">
           <img src="./search.png"></img>
