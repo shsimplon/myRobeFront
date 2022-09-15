@@ -50,19 +50,19 @@ const NavigationComponent = () => {
   return (
     <div className="navbarContainer">
       <nav className="navbar">
-        <a href="/" className=" logo">
+        <Link to="/" className=" logo">
           Dressline
-        </a>
-        <a href="/dress/favoris" className="navbar-link">
+        </Link>
+        <Link to="/dress/favoris" className="navbar-link">
           Robes
-        </a>
-        <a href="/panier" className="navbar-link">
+        </Link>
+        <Link to="/panier" className="navbar-link">
           Panier
           <span className="notif">{totalDress}</span>
-        </a>
-        <a href="/authentification" className="navbar-link">
+        </Link>
+        <Link to="/authentification" className="navbar-link">
           Connexion
-        </a>
+        </Link>
         {userState.user && (
           <HiOutlineLogout
             style={{

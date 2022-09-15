@@ -32,9 +32,9 @@ const DressesListHome = () => {
         />
       </div>
       <br />
-      <h3>Liste de robes</h3>
+      {/* <h3>Liste de robes</h3> */}
 
-      <div className="cards-container">
+      <div className="cards-container" style={{ marginTop: '6rem' }}>
         {dressState &&
           dressState
             .filter(val => {
