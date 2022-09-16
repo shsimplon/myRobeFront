@@ -46,25 +46,11 @@ body {
   line-height: 1.4rem;
 
   color: #787797;
-//   padding: 0 2rem 0 2rem;
+//    padding: 0 2rem 0 2rem;
   min-height: 100vh;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
-
-// input[type='submit'] {
-//   background: none;
-//   border: none;
-//   cursor: pointer;
-//   background: red;
-//   transition: 0.2s;
-
-//   &:hover {
-//     filter: brightness(80%);
-//     transform: translateX(2px);
-//   }
-// }
-
 h1,
 h2,
 h3,
@@ -78,7 +64,6 @@ a {
 
 img {
   max-width: 100%;
-  //   object-fit: cover;
 }
 
 #image {
@@ -107,11 +92,15 @@ img {
   position: absolute;
   width: 20px;
   height: 20px;
-  padding-left: 5.5px;
-  border-radius: 50%;
-  background: #f1f1f1;
-  color: #333;
-  transform: translate(-40%, -40%);
+   border-radius: 50%;
+ background: #bb8a5d;
+ transform: translate(190%, -190%);
+  @media(max-width: 470px){
+    background: white;
+    transform: translate(-4%, -40%);
+    color: #bb8a5d;
+ 
+  }
 }
 .contact {
   display: flex;

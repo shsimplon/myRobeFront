@@ -53,15 +53,30 @@ const NavigationComponent = () => {
         <Link to="/" className=" logo">
           Dressline
         </Link>
-        <Link to="/dress/favoris" className="navbar-link">
+
+        <a href="#dressList" className="navbar-link">
           Robes
-        </Link>
+        </a>
         <Link to="/panier" className="navbar-link">
-          Panier
-          <span className="notif">{totalDress}</span>
+          <span>Panier</span>
+
+          <div className="notif">{totalDress}</div>
+          <img
+            style={{ width: '22px', height: '24px' }}
+            id="image-navigation"
+            alt="icon-panier"
+            src="https://static.overlay-tech.com/assets/cdb01ef3-6f67-477a-a321-2f3877f665fc.svg"
+          />
         </Link>
+
         <Link to="/authentification" className="navbar-link">
-          Se Connecter
+          <span>Se Connecter</span>
+          <img
+            style={{ width: '22px', height: '24px' }}
+            id="image-navigation"
+            alt="icon-profil"
+            src="https://static.overlay-tech.com/assets/42a6309f-f647-42fb-b109-44552601b9de.svg"
+          />
         </Link>
         {userState.user && (
           <HiOutlineLogout

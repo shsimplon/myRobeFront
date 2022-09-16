@@ -9,7 +9,7 @@ import { dressService } from 'services';
 import { FaRegEdit } from 'react-icons/fa';
 
 import Delete from './Delete';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { userStore } from 'types/user';
 
 const CardDress = ({ dress }) => {
