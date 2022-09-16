@@ -4,9 +4,9 @@
   justify-content: space-around;
   @media screen and (max-width: 700px) {
 flex-direction: column-reverse;  
+gap: 30px;
+
   }
-
-
 
   .header-left {
     display: flex;
@@ -15,15 +15,31 @@ flex-direction: column-reverse;
     padding-left: 2rem;
     font-size: calc(0.8rem + 0.2%);
     max-width: 400px;
+    .h2{
+        margin-top: 5rem;
+    }
   }
-  .img-fleche {
+  
+  
+ 
+
+  
+}
+.img-fleche {
     width: 30px;
     height: 60px;
-    align-self: center;
-    cursor: pointer;
+    cursor: pointer; 
+    animation: mymove 5s infinite;
+    position: relative;
   }
-}
-
+.fleche-dressList{
+    margin: auto;
+  
+  }
+  @keyframes mymove {
+    0%   {top: 0px; }
+  100% {top: 50px; }
+  }
 :root {
   --size: 200px;
 }

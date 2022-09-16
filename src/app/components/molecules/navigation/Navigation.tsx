@@ -61,7 +61,7 @@ const NavigationComponent = () => {
           <span className="notif">{totalDress}</span>
         </Link>
         <Link to="/authentification" className="navbar-link">
-          Connexion
+          Se Connecter
         </Link>
         {userState.user && (
           <HiOutlineLogout

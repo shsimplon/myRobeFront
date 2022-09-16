@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Home from 'app/components/templates/Home';
-import DressesListHome from 'app/pages/pageDresses/DressesListHome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,16 +10,14 @@ const Header = () => {
   return (
     <div className="header">
       <div className=" header-left">
-        <h2>
+        <h2 className="h2">
           {' '}
           Nos stylistes s'en sont largement inspirée et l'ont choisie pour vous
           satisfaire
         </h2>
-        <img
-          onClick={e => handleClick(e)}
-          className="img-fleche"
-          src="./fleche-bas.png"
-        />
+        <a className="fleche-dressList" href="#dressList">
+          <img className="img-fleche" src="./fleche-bas.png" />
+        </a>
       </div>
       <div className="cube">
         <img

@@ -14,10 +14,8 @@ const AddReservation = ({ setIsOpen }) => {
   const [message, setMessage] = useState('');
   let userState = useSelector((state: { user: userStore }) => state.user);
   let userId = userState.user?.id && userState.user?.id;
-  console.log('userId', userId);
   const cartStore = useSelector((state: { cart: any }) => state.cart);
   const dressId = cartStore.cart[0].id && cartStore.cart[0].id;
-  console.log('dressId', dressId);
 
   const dressQuantity =
     cartStore.cart[0].quantity && cartStore.cart[0].quantity;
@@ -42,7 +40,6 @@ const AddReservation = ({ setIsOpen }) => {
         notifySuccess(
           'votre réservation est confirmée, vous pouvez venir la chercher au magasin! ',
         );
-        console.log('data', data);
       } catch (error) {
         throw error;
       }

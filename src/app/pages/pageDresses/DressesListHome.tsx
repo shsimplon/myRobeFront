@@ -24,7 +24,7 @@ const DressesListHome = () => {
 
   return (
     <>
-      <div className="nav-heading">
+      <div id="dressList" className="nav-heading">
         <SideSearch
           value={value}
           setValue={setValue}

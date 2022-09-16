@@ -22,7 +22,6 @@ const FormLogin = props => {
       } else {
         const response = await userServices.signIn({ email, password });
         const user = response.data;
-
         dispatch(login(user));
         notifySuccess(`vous êtes connéctés: ${user.email}!`);
         if (user?.role === 'A') {
