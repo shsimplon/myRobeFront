@@ -20,7 +20,10 @@ form {
   form {
     display: grid;
     margin: auto;
-    padding-right: 3rem;
+    margin-right: 20rem;
+    @media screen and (max-width: 900px) {
+        margin-right: 0rem;
+    }
 
     input {
       padding: 8px 10px;
