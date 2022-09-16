@@ -65,7 +65,7 @@ const CardDress = ({ dress }) => {
         }}
         key={dress.id}
       >
-        <img src={dress.image} alt={'photo de ' + dress.name} />
+        <img src={dress.image} alt={'dress image ' + dress.name} />
       </Link>
       <div className="infos">
         <div className="title">

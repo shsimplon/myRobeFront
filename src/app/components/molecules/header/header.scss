@@ -3,9 +3,8 @@
   display: flex;
   justify-content: space-around;
   @media screen and (max-width: 700px) {
-flex-direction: column-reverse;  
-gap: 30px;
-
+    flex-direction: column-reverse;
+    gap: 30px;
   }
 
   .header-left {
@@ -15,31 +14,31 @@ gap: 30px;
     padding-left: 2rem;
     font-size: calc(0.8rem + 0.2%);
     max-width: 400px;
-    .h2{
-        margin-top: 5rem;
+    .h2 {
+      margin-top: 5rem;
+      color: #787797;
     }
   }
-  
-  
- 
-
-  
 }
 .img-fleche {
-    width: 30px;
-    height: 60px;
-    cursor: pointer; 
-    animation: mymove 5s infinite;
+  width: 30px;
+  height: 60px;
+  cursor: pointer;
+  animation: mymove 5s infinite;
+  animation-duration: 3s;
     position: relative;
+}
+.fleche-dressList {
+  margin: auto;
+}
+@keyframes mymove {
+  0% {
+    top: 0px;
   }
-.fleche-dressList{
-    margin: auto;
-  
+  100% {
+    top: 50px;
   }
-  @keyframes mymove {
-    0%   {top: 0px; }
-  100% {top: 50px; }
-  }
+}
 :root {
   --size: 200px;
 }
@@ -51,9 +50,8 @@ gap: 30px;
   /* transform: rotateY(30deg) rotateZ(30deg) rotateX(0deg); */
   animation: spin 20s infinite linear;
   @media screen and (max-width: 700px) {
-   margin:  auto ;
-
-}
+    margin: auto;
+  }
 }
 .side {
   position: absolute;

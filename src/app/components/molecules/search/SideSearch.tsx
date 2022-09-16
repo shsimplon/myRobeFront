@@ -12,7 +12,7 @@ const SideSearch = ({ value, setValue, handleChange }) => {
     <div className="sideSearch">
       <div className="input-control">
         <label htmlFor="search">
-          <img src="./search.png"></img>
+          <img src="./search.png" alt="search image"></img>
         </label>
 
         <input
@@ -23,7 +23,12 @@ const SideSearch = ({ value, setValue, handleChange }) => {
           onChange={handleChange}
           value={value}
         />
-        <img className="img-close" src="./close.png" onClick={clearInput}></img>
+        <img
+          className="img-close"
+          src="./close.png"
+          alt="close image"
+          onClick={clearInput}
+        ></img>
       </div>
     </div>
   );

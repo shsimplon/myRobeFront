@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
 import { dressesStore } from '../../../types/dress';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,7 +36,7 @@ const DressDetails = () => {
         <img
           //@ts-ignore
           src={dresses && dresses[productClicked].image}
-          alt="img"
+          alt="dress image"
         ></img>
 
         <div className="dress-infos">

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const CardDressDetails = ({ dress }) => {
   return (
     <div className="dress-card">
-      <img src={dress.image} alt={'photo de ' + dress.name} />
+      <img src={dress.image} alt={'dress iamge ' + dress.name} />
       <div className="infos">
         <div className="title">
           <p>

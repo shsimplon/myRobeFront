@@ -7,7 +7,7 @@ export default {
     transparentBlack: 'rgba(0,0,0,0.25)',
     transparentSilver: 'rgba(212,188,194,0.8)',
     white: 'rgba(255,255,255,1)',
-    black: 'rgba(0,0,0,1)',
+    black: '#787797',
     linen: 'rgba(246,239,234,1)',
 
     lightGrey: 'rgba(220,201,206,1)',

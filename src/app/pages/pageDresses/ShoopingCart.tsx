@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deletObjectCart, updateChoopingCart } from 'features/addToCart.slice';
@@ -38,7 +39,7 @@ const ShoopingCart = () => {
         <ul className="cart-list">
           {cartStore.cart.map(dress => (
             <li key={dress.id}>
-              <img src={dress.image} alt="" />
+              <img src={dress.image} alt=" dress image" />
               <div className="bloc-cart-infos">
                 <h4>{dress.name}</h4>
                 <p>Price: {dress.price}€</p>
