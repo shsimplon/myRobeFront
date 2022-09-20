@@ -13,8 +13,8 @@ const Header = () => {
       <div className=" header-left">
         <h2 className="h2">
           {' '}
-          Nos stylistes s'en sont largement inspirée et l'ont choisie pour vous
-          satisfaire
+          Nos stylistes s'en sont largement inspirés et les ont choisis pour
+          vous satisfaire
         </h2>
         <a className="fleche-dressList" href="#dressList">
           <img

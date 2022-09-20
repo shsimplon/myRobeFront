@@ -7,6 +7,7 @@
     height: 50vh;
     margin-top: 2rem;
     padding-left: 1rem;
+    margin-bottom: 5rem;
 
     .closeModale  {
         color: #BB8A5E;
@@ -18,6 +19,8 @@
     background: none;
     font-size: clamp(0.5rem, 10vw, 1rem);
     width: 50%;
+    margin-bottom: 2rem;
+
     cursor: pointer;
     &:hover {
         background: none;
@@ -25,7 +28,10 @@
 }
 
 .closeModale{
-    margin-left: 35rem
+    margin-left: 35rem;
+    @media screen and (max-width: 670px) {
+        margin-left: 0rem;
+    } 
 }
 
 .displayNone{

@@ -45,6 +45,15 @@
     font-size: clamp(0.1rem, 10vw, 1rem); 
     margin-top: 12rem;
     width: 25%;
+    @media screen and (max-width: 330px) {
+        margin-top: 10rem;
+        width: 30%;   
+        overflow-wrap:normal;
+        font-size: calc(0.5rem + 0.3vw);
+
+    
+    } 
+   
 }
 .bloc-cart-infos p {
   margin-bottom: 0px;

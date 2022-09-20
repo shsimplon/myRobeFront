@@ -5,16 +5,17 @@ export const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2rem;
+ 
   border: solid 2px #dcc9ce;
   background: #dcc9ce;
   @media (max-width: 950px) {
-    margin-top: 5rem;  }
+     }
   @media (max-width: 680px) {
     display: flex;
     flex-direction: column;
     gap:20px
   }
+  
 }
 `;
 export const Contact108RueLemercier75017Paris = styled.p`
