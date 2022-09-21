@@ -25,8 +25,8 @@ const DressesList = () => {
 
       <div className="cards-container">
         {dressState &&
-          dressState.map((dress, key) => (
-            <CardDress key={dress.id} dress={dress} />
+          dressState.map((dress, index) => (
+            <CardDress key={index} dress={dress} />
           ))}
       </div>
     </>

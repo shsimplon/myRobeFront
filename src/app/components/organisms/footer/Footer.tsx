@@ -54,7 +54,7 @@ const FooterComponent = () => {
       </Footer>
       <div style={{ textAlign: 'center', paddingTop: '1rem' }}>
         {' '}
-        Paris.©2022 Dresseline
+        Paris.©2022 Dressline
       </div>
     </>
   );
